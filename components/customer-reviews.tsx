@@ -52,7 +52,7 @@ const reviews = [
   },
 ]
 
-export default function CustomerReviews() {
+export function CustomerReviews() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
@@ -96,3 +96,5 @@ export default function CustomerReviews() {
     </div>
   )
 }
+
+export default CustomerReviews

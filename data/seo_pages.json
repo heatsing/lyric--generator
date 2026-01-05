@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "slug": "happy-pop-lyrics",
+    "title": "Happy Pop Lyrics Generator",
+    "description": "Create happy pop song lyrics instantly with AI. Perfect for upbeat pop songs, free and unlimited.",
+    "h1": "AI Happy Pop Lyrics Generator",
+    "keywords": "happy pop lyrics, pop song generator, happy songs",
+    "preset": {
+      "genre": "Pop",
+      "mood": "Happy",
+      "theme": "",
+      "topic": "Happy Pop music"
+    }
+  },
+  {
+    "id": 2,
+    "slug": "sad-rap-lyrics",
+    "title": "Sad Rap Lyrics Generator",
+    "description": "Create sad rap song lyrics instantly with AI. Perfect for emotional rap songs, free and unlimited.",
+    "h1": "AI Sad Rap Lyrics Generator",
+    "keywords": "sad rap lyrics, rap song generator, sad songs",
+    "preset": {
+      "genre": "Rap",
+      "mood": "Sad",
+      "theme": "",
+      "topic": "Sad Rap music"
+    }
+  },
+  {
+    "id": 3,
+    "slug": "romantic-rnb-lyrics",
+    "title": "Romantic R&B Lyrics Generator",
+    "description": "Generate R&B lyrics about romance. AI-powered R&B song lyrics generator for love themed songs.",
+    "h1": "Romantic R&B Lyrics Generator - AI Powered",
+    "keywords": "romantic r&b lyrics, r&b love songs",
+    "preset": {
+      "genre": "R&B",
+      "mood": "Romantic",
+      "theme": "Love",
+      "topic": "Romance in R&B style"
+    }
+  }
+]

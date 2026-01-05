@@ -192,6 +192,112 @@ export default function HomePageClient() {
         <FAQ />
       </section>
 
+      {/* Popular Generators Section */}
+      <section className="container mx-auto px-4 py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Lyric Generators</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Explore our collection of specialized AI-powered lyric generators. Each generator is optimized for
+              specific genres, moods, and themes to help you create the perfect song.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <Link
+              href="/generator/happy-pop-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Happy Pop Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Upbeat pop songs</p>
+            </Link>
+            <Link
+              href="/generator/sad-rap-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Sad Rap Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Emotional rap verses</p>
+            </Link>
+            <Link
+              href="/generator/romantic-rnb-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Romantic R&B Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Love songs in R&B style</p>
+            </Link>
+            <Link
+              href="/generator/energetic-rock-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Energetic Rock Lyrics</h3>
+              <p className="text-xs text-muted-foreground">High-energy rock anthems</p>
+            </Link>
+            <Link
+              href="/generator/love-pop-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Love Pop Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Romantic pop ballads</p>
+            </Link>
+            <Link
+              href="/generator/breakup-country-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Breakup Country Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Heartbreak country songs</p>
+            </Link>
+            <Link
+              href="/generator/party-edm-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Party EDM Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Club and party tracks</p>
+            </Link>
+            <Link
+              href="/generator/diss-track-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Diss Track Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Rap battle verses</p>
+            </Link>
+            <Link
+              href="/generator/birthday-song-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Birthday Song Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Celebration songs</p>
+            </Link>
+            <Link
+              href="/generator/christmas-song-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Christmas Song Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Holiday music</p>
+            </Link>
+            <Link
+              href="/generator/trap-beat-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Trap Beat Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Modern trap music</p>
+            </Link>
+            <Link
+              href="/generator/motivational-song-lyrics"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+            >
+              <h3 className="font-semibold mb-1">Motivational Song Lyrics</h3>
+              <p className="text-xs text-muted-foreground">Inspirational anthems</p>
+            </Link>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-sm text-muted-foreground">
+              Explore 100+ more specialized generators by running the SEO generator script
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Genre Quick Links Section */}
       <section className="container mx-auto px-4 py-12 border-t border-border/50">
         <div className="max-w-6xl mx-auto">
