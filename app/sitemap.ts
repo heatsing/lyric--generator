@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next"
+import { readFileSync } from "fs"
+import { join } from "path"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lyricgenerator.cc"
 
   const genres = [
     "rnb",
@@ -33,7 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   let dynamicGeneratorPages: MetadataRoute.Sitemap = []
   try {
-    const seoPages = require("@/data/seo_pages.json")
+    const filePath = join(process.cwd(), "data", "seo_pages.json")
+    const fileContent = readFileSync(filePath, "utf-8")
+    const seoPages = JSON.parse(fileContent)
+
     dynamicGeneratorPages = seoPages.map((page: any) => ({
       url: `${baseUrl}/generator/${page.slug}`,
       lastModified: new Date(),
@@ -41,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     }))
   } catch (error) {
-    console.log("SEO pages JSON not found, run: python scripts/seo_generator.py")
+    console.error("Error loading SEO pages:", error)
   }
 
   return [
@@ -74,12 +79,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/login`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
     },
     ...genrePages,
     ...dynamicGeneratorPages,
