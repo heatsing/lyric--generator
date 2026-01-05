@@ -24,7 +24,7 @@ const sampleSongs: Song[] = [
     genre: "Pop",
     mood: "Happy",
     duration: "3:24",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
     lyrics:
       "Dancing in the sunlight, feeling so alive\nEndless summer days, we'll never say goodbye\nWith you by my side, everything feels right\nThese memories we make will shine so bright",
     coverColor: "bg-gradient-to-br from-yellow-400 to-orange-500",
@@ -35,7 +35,7 @@ const sampleSongs: Song[] = [
     genre: "R&B",
     mood: "Romantic",
     duration: "4:12",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
     lyrics:
       "In the quiet of the night, I think of you\nMidnight dreams come alive, when stars shine through\nYour love is like a melody, soft and true\nIn every midnight dream, I'm lost in you",
     coverColor: "bg-gradient-to-br from-purple-600 to-blue-600",
@@ -46,7 +46,7 @@ const sampleSongs: Song[] = [
     genre: "Rock",
     mood: "Energetic",
     duration: "3:58",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
     lyrics:
       "Rolling down the thunder road tonight\nEngines roaring, headlights burning bright\nFreedom calling, we're breaking through\nOn this thunder road, just me and you",
     coverColor: "bg-gradient-to-br from-red-600 to-gray-800",
@@ -57,7 +57,7 @@ const sampleSongs: Song[] = [
     genre: "Hip Hop",
     mood: "Confident",
     duration: "3:45",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
     lyrics:
       "Walking through the city, lights shining bright\nGot my dreams in focus, reaching new heights\nEvery step I take, I'm making my mark\nFrom sunrise to sunset, lighting up the dark",
     coverColor: "bg-gradient-to-br from-cyan-500 to-blue-700",
@@ -68,7 +68,7 @@ const sampleSongs: Song[] = [
     genre: "Country",
     mood: "Nostalgic",
     duration: "3:15",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
     lyrics:
       "With my guitar and an open heart\nTelling stories from the very start\nSimple melodies, honest and true\nThis acoustic heart still beats for you",
     coverColor: "bg-gradient-to-br from-amber-600 to-yellow-700",
@@ -79,7 +79,7 @@ const sampleSongs: Song[] = [
     genre: "Electronic",
     mood: "Futuristic",
     duration: "4:30",
-    audioUrl: "/placeholder.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
     lyrics:
       "In a world of circuits and neon streams\nWe're living in these digital dreams\nPulse of the future, electric beat\nWhere reality and fantasy meet",
     coverColor: "bg-gradient-to-br from-pink-500 to-purple-700",
@@ -92,7 +92,7 @@ export default function SampleSongs() {
   const [currentTime, setCurrentTime] = useState<{ [key: number]: number }>({})
   const audioRefs = useRef<{ [key: number]: HTMLAudioElement | null }>({})
 
-  const togglePlay = (songId: number) => {
+  const togglePlay = async (songId: number) => {
     const audio = audioRefs.current[songId]
     if (!audio) return
 
@@ -105,8 +105,17 @@ export default function SampleSongs() {
         const currentAudio = audioRefs.current[playingSongId]
         if (currentAudio) currentAudio.pause()
       }
-      audio.play()
-      setPlayingSongId(songId)
+
+      // Use try-catch to handle interrupted play() requests
+      try {
+        await audio.play()
+        setPlayingSongId(songId)
+      } catch (error) {
+        // Ignore AbortError when play() is interrupted by pause()
+        if (error instanceof Error && error.name !== "AbortError") {
+          console.error("[v0] Audio playback error:", error)
+        }
+      }
     }
   }
 
