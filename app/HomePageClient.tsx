@@ -28,18 +28,6 @@ export default function HomePageClient() {
             <Link href="/" className="text-sm font-medium text-foreground transition-colors">
               {t.nav.lyricsGenerator}
             </Link>
-            <Link
-              href="/music-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t.nav.musicGenerator}
-            </Link>
-            <Link
-              href="/song-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t.nav.songGenerator}
-            </Link>
             <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {t.nav.pricing}
             </Link>

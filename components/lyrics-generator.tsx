@@ -179,14 +179,27 @@ export default function LyricsGenerator() {
     }
   }
 
-  const togglePlayPause = () => {
+  const togglePlayPause = async () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
+      try {
+        if (isPlaying) {
+          audioRef.current.pause()
+          setIsPlaying(false)
+        } else {
+          await audioRef.current.play()
+          setIsPlaying(true)
+        }
+      } catch (error) {
+        // Ignore AbortError when play is interrupted by pause
+        if (error instanceof Error && error.name !== "AbortError") {
+          console.error("[v0] Audio playback error:", error)
+          toast({
+            title: "Playback Error",
+            description: "Failed to play audio. Please try again.",
+            variant: "destructive",
+          })
+        }
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
