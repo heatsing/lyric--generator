@@ -1,3 +1,4 @@
+import { openai } from "@ai-sdk/openai"
 import { generateText } from "ai"
 
 export const maxDuration = 30
@@ -23,17 +24,19 @@ Generate:
 
 Make it professional, creative, and ready for production.`
 
+    const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
+    const model = openai("gpt-4o", { apiKey })
+
     const { text } = await generateText({
-      model: "openai/gpt-4o",
+      model,
       prompt,
-      maxOutputTokens: 2000,
+      maxTokens: 2000,
       temperature: 0.9,
-      apiKey: process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c",
     })
 
     return Response.json({
       song: text,
-      audioUrl: "/placeholder-audio.mp3", // In production, this would be actual audio file
+      audioUrl: "/placeholder-audio.mp3",
     })
   } catch (error) {
     console.error("[v0] Error in generate-song API:", error)

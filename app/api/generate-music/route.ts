@@ -1,3 +1,4 @@
+import { openai } from "@ai-sdk/openai"
 import { generateText } from "ai"
 
 export const maxDuration = 30
@@ -23,17 +24,19 @@ Generate a professional music composition description including:
 
 Be creative and detailed.`
 
+    const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
+    const model = openai("gpt-4o", { apiKey })
+
     const { text } = await generateText({
-      model: "openai/gpt-4o",
+      model,
       prompt,
-      maxOutputTokens: 1500,
+      maxTokens: 1500,
       temperature: 0.8,
-      apiKey: process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c",
     })
 
     return Response.json({
       music: text,
-      audioUrl: "/placeholder-audio.mp3", // In production, this would be actual audio file
+      audioUrl: "/placeholder-audio.mp3",
     })
   } catch (error) {
     console.error("[v0] Error in generate-music API:", error)

@@ -1,3 +1,4 @@
+import { openai } from "@ai-sdk/openai"
 import { generateText } from "ai"
 
 export const maxDuration = 30
@@ -6,7 +7,6 @@ export async function POST(req: Request) {
   try {
     const { genre, mood, theme, topic, length, language } = await req.json()
 
-    // Build the prompt based on user inputs
     const lengthInstructions = {
       short: "1 verse and 1 chorus",
       medium: "2 verses, 1 chorus (repeated after each verse), and possibly a pre-chorus",
@@ -33,12 +33,14 @@ Guidelines:
 
 Generate the complete song lyrics now:`
 
+    const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
+    const model = openai("gpt-4o", { apiKey })
+
     const { text } = await generateText({
-      model: "openai/gpt-4o",
+      model,
       prompt,
-      maxOutputTokens: 2000,
+      maxTokens: 2000,
       temperature: 0.9,
-      apiKey: process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c",
     })
 
     return Response.json({ lyrics: text })
