@@ -1,6 +1,3 @@
-import { openai } from "@ai-sdk/openai"
-import { generateText } from "ai"
-
 export const maxDuration = 30
 
 export async function POST(req: Request) {
@@ -34,16 +31,34 @@ Guidelines:
 Generate the complete song lyrics now:`
 
     const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
-    const model = openai("gpt-4o", { apiKey })
 
-    const { text } = await generateText({
-      model,
-      prompt,
-      maxTokens: 2000,
-      temperature: 0.9,
+    const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+        max_tokens: 2000,
+        temperature: 0.9,
+      }),
     })
 
-    return Response.json({ lyrics: text })
+    if (!response.ok) {
+      throw new Error(`DeepSeek API error: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    const lyrics = data.choices[0].message.content
+
+    return Response.json({ lyrics })
   } catch (error) {
     console.error("[v0] Error in generate-lyrics API:", error)
     return Response.json({ error: "Failed to generate lyrics" }, { status: 500 })

@@ -23,6 +23,8 @@
    - **值**: `sk-e9052c75601b4ba1804d5f7a9958151c`
    - **环境**: Production, Preview, Development (全选)
 
+> **注意**: 本项目使用 DeepSeek API（兼容 OpenAI 格式）。API key 通过 `OPENAI_API_KEY` 环境变量配置，代码会自动连接到 DeepSeek 的端点 `https://api.deepseek.com/v1`。
+
 ### 第二步：部署
 
 ```bash
@@ -63,7 +65,7 @@ npm run dev
 - **框架**: Next.js 16 (App Router)
 - **UI 组件**: shadcn/ui + Radix UI
 - **样式**: Tailwind CSS v4
-- **AI 集成**: OpenAI GPT-4
+- **AI 集成**: DeepSeek API (deepseek-chat 模型)
 - **部署**: Vercel
 
 ## 常见问题
@@ -76,6 +78,15 @@ npm run dev
 2. ✅ 所有文件是否已推送到 GitHub
 3. ✅ Vercel 构建日志是否显示成功
 4. ✅ 尝试重新部署：Deployments → 点击三个点 → Redeploy
+
+### API 调用失败？
+
+如果 AI 生成功能无法工作：
+
+1. ✅ 确认 DeepSeek API key 有效且有额度
+2. ✅ 检查 Vercel 环境变量配置正确
+3. ✅ 查看 Vercel Functions 日志中的错误信息
+4. ✅ 确认 API key 格式正确（以 `sk-` 开头）
 
 ### 需要帮助？
 

@@ -1,6 +1,3 @@
-import { openai } from "@ai-sdk/openai"
-import { generateText } from "ai"
-
 export const maxDuration = 30
 
 export async function POST(req: Request) {
@@ -25,17 +22,35 @@ Generate a professional music composition description including:
 Be creative and detailed.`
 
     const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
-    const model = openai("gpt-4o", { apiKey })
 
-    const { text } = await generateText({
-      model,
-      prompt,
-      maxTokens: 1500,
-      temperature: 0.8,
+    const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "deepseek-chat",
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+        max_tokens: 1500,
+        temperature: 0.8,
+      }),
     })
 
+    if (!response.ok) {
+      throw new Error(`DeepSeek API error: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    const music = data.choices[0].message.content
+
     return Response.json({
-      music: text,
+      music,
       audioUrl: "/placeholder-audio.mp3",
     })
   } catch (error) {
