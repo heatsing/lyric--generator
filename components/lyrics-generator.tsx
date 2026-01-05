@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Sparkles, Copy, RotateCw, Download, Loader2, Music2, Play, Pause, Volume2 } from "lucide-react"
+import { Sparkles, Copy, RotateCw, Download, Loader2, Music2, ImageIcon, Pause, Play, Volume2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -89,6 +89,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const { toast } = useToast()
   const { t } = useLanguage()
+  const [generationProgress, setGenerationProgress] = useState("")
 
   useEffect(() => {
     const audio = audioRef.current
@@ -103,6 +104,21 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
     setIsGenerating(true)
     setLyrics("")
     setAudioUrl("")
+
+    // Show progress messages for better UX
+    const progressMessages = [
+      "Analyzing your preferences...",
+      "Finding the perfect rhyme scheme...",
+      "Crafting your verses...",
+      "Polishing the chorus...",
+      "Almost there...",
+    ]
+
+    let messageIndex = 0
+    const progressInterval = setInterval(() => {
+      setGenerationProgress(progressMessages[messageIndex])
+      messageIndex = (messageIndex + 1) % progressMessages.length
+    }, 1500)
 
     try {
       const response = await fetch("/api/generate-lyrics", {
@@ -120,6 +136,8 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
         }),
       })
 
+      clearInterval(progressInterval)
+
       if (!response.ok) {
         throw new Error("Failed to generate lyrics")
       }
@@ -133,6 +151,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
       })
     } catch (error) {
       console.error("[v0] Error generating lyrics:", error)
+      clearInterval(progressInterval)
       toast({
         title: "Error",
         description: "Failed to generate lyrics. Please try again.",
@@ -140,6 +159,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
       })
     } finally {
       setIsGenerating(false)
+      setGenerationProgress("")
     }
   }
 
@@ -260,6 +280,77 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
     })
   }
 
+  const handleDownloadImage = async () => {
+    if (!lyrics) return
+
+    try {
+      // Dynamically import html2canvas only when needed
+      const html2canvas = (await import("html2canvas")).default
+
+      // Create a temporary container for the lyrics card
+      const container = document.createElement("div")
+      container.style.position = "fixed"
+      container.style.left = "-9999px"
+      container.style.width = "800px"
+      container.style.padding = "60px"
+      container.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      container.style.borderRadius = "24px"
+      container.style.fontFamily = "system-ui, -apple-system, sans-serif"
+
+      container.innerHTML = `
+        <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 40px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h2 style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">AI Lyrics Generator</h2>
+              <p style="font-size: 14px; color: #666; margin: 0;">${genre} • ${mood} • ${theme}</p>
+            </div>
+          </div>
+          <div style="white-space: pre-wrap; font-size: 16px; line-height: 1.8; color: #2a2a2a; font-family: 'Georgia', serif;">${lyrics}</div>
+        </div>
+      `
+
+      document.body.appendChild(container)
+
+      const canvas = await html2canvas(container, {
+        scale: 2,
+        backgroundColor: null,
+      })
+
+      document.body.removeChild(container)
+
+      // Convert to blob and download
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement("a")
+          a.href = url
+          a.download = `lyrics-${Date.now()}.png`
+          a.click()
+          URL.revokeObjectURL(url)
+
+          toast({
+            title: "Downloaded!",
+            description: "Lyrics card saved as image.",
+          })
+        }
+      })
+    } catch (error) {
+      console.error("[v0] Error creating image:", error)
+      toast({
+        title: "Error",
+        description: "Failed to create image. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
+
   return (
     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
       {/* Left Panel - Input Form */}
@@ -371,15 +462,19 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
           <h2 className="text-2xl font-bold text-balance">{t.generator.yourLyrics}</h2>
           {lyrics && (
             <div className="flex gap-2">
-              <Button onClick={handleCopy} variant="outline" size="sm">
+              <Button onClick={handleCopy} variant="outline" size="sm" title="Copy to clipboard">
                 <Copy className="w-4 h-4" />
                 <span className="sr-only">Copy lyrics</span>
               </Button>
-              <Button onClick={handleDownload} variant="outline" size="sm">
+              <Button onClick={handleDownloadImage} variant="outline" size="sm" title="Download as image">
+                <ImageIcon className="w-4 h-4" />
+                <span className="sr-only">Download as image</span>
+              </Button>
+              <Button onClick={handleDownload} variant="outline" size="sm" title="Download as text">
                 <Download className="w-4 h-4" />
                 <span className="sr-only">Download lyrics</span>
               </Button>
-              <Button onClick={handleGenerate} variant="outline" size="sm" disabled={isGenerating}>
+              <Button onClick={handleGenerate} variant="outline" size="sm" disabled={isGenerating} title="Regenerate">
                 <RotateCw className="w-4 h-4" />
                 <span className="sr-only">Regenerate lyrics</span>
               </Button>
@@ -391,7 +486,8 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
           {isGenerating ? (
             <div className="flex flex-col items-center justify-center h-full py-16">
               <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
-              <p className="text-muted-foreground text-center">{t.generator.creating}</p>
+              <p className="text-muted-foreground text-center font-medium">{generationProgress}</p>
+              <p className="text-sm text-muted-foreground/60 mt-2">This usually takes 3-5 seconds</p>
             </div>
           ) : lyrics ? (
             <div className="space-y-4">

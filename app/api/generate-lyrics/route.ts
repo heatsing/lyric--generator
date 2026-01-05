@@ -10,7 +10,7 @@ export async function POST(req: Request) {
       long: "3 verses, 1 chorus (repeated after each verse), 1 bridge, and possibly a pre-chorus and outro",
     }
 
-    const prompt = `You are a professional songwriter and lyricist. Generate original and creative song lyrics with the following specifications:
+    const prompt = `You are a professional songwriter and lyricist with expertise in ${genre} music. Generate original and creative song lyrics with the following specifications:
 
 Genre: ${genre}
 Mood: ${mood}
@@ -19,16 +19,53 @@ ${topic ? `Additional Topic/Keywords: ${topic}` : ""}
 Length: ${lengthInstructions[length as keyof typeof lengthInstructions]}
 Language: ${language}
 
-Guidelines:
+CRITICAL FORMATTING REQUIREMENTS:
+- MUST use clear section labels in square brackets: [Verse 1], [Chorus], [Verse 2], [Bridge], [Pre-Chorus], [Outro]
+- Each section MUST be separated by blank lines for readability
+- The [Chorus] MUST be IDENTICAL each time it repeats (copy exact same lyrics)
+- Use proper ${genre} song structure with genre-appropriate verse/chorus patterns
+- Label each section clearly - this is MANDATORY for professional presentation
+
+Genre-Specific Guidelines for ${genre}:
+${genre === "Hip Hop" || genre === "Rap" ? "- Focus on wordplay, internal rhymes, and flow\n- Use 16-bar verses with strong punchlines\n- Include metaphors and vivid imagery" : ""}
+${genre === "Pop" ? "- Create catchy, memorable hooks\n- Use simple, relatable language\n- Focus on emotional directness and singability" : ""}
+${genre === "Rock" ? "- Use powerful, energetic language\n- Include rebellion or passion themes\n- Create anthemic choruses" : ""}
+${genre === "Country" ? "- Tell a clear story with authentic emotions\n- Use down-to-earth language and imagery\n- Include relatable life experiences" : ""}
+${genre === "R&B" ? "- Emphasize smooth, soulful expressions\n- Focus on love, relationships, or emotions\n- Use melodic phrasing" : ""}
 - Write authentic, emotionally resonant lyrics that match the ${mood} mood
 - Use vivid imagery and metaphors appropriate for ${genre} music
-- Include proper structure with labeled sections (e.g., [Verse 1], [Chorus], [Bridge])
-- Make lyrics flow naturally with good rhythm and rhyme scheme
-- Ensure the theme of "${theme}" is central to the lyrics
-- Be creative and original - no clichés
-- Make it memorable and singable
+- Ensure natural flow with strong rhythm and rhyme scheme suitable for ${genre}
+- Make the theme of "${theme}" central and meaningful throughout
+- Be creative and original - avoid clichés and overused phrases
+- Make it memorable, singable, and emotionally engaging
+- Include storytelling elements that create an emotional journey
 
-Generate the complete song lyrics now:`
+REQUIRED OUTPUT FORMAT EXAMPLE:
+[Verse 1]
+(4-8 lines of lyrics here)
+
+[Pre-Chorus] (optional, if appropriate for genre)
+(2-4 lines of lyrics here)
+
+[Chorus]
+(4-8 lines of lyrics here - make this the most memorable part)
+
+[Verse 2]
+(4-8 lines of lyrics here - continue the story)
+
+[Chorus]
+(repeat EXACT same chorus lyrics from above)
+
+[Bridge] (if length is long)
+(4-6 lines of lyrics here - provide contrast or new perspective)
+
+[Chorus]
+(repeat EXACT same chorus lyrics one final time)
+
+[Outro] (optional)
+(2-4 lines to close the song)
+
+Generate the complete song lyrics now with proper structure labels and formatting:`
 
     const apiKey = process.env.OPENAI_API_KEY || "sk-e9052c75601b4ba1804d5f7a9958151c"
 
@@ -41,6 +78,11 @@ Generate the complete song lyrics now:`
       body: JSON.stringify({
         model: "deepseek-chat",
         messages: [
+          {
+            role: "system",
+            content:
+              "You are a professional songwriter and lyricist who creates structured, well-formatted lyrics with clear section labels. You ALWAYS use proper formatting with [Verse 1], [Chorus], [Bridge] labels.",
+          },
           {
             role: "user",
             content: prompt,

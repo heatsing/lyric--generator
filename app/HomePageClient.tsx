@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import CustomerReviews from "@/components/customer-reviews"
 import { useLanguage } from "@/contexts/language-context"
 import LanguageSwitcher from "@/components/language-switcher"
+import GenreGuide from "@/components/genre-guide"
 
 export default function HomePageClient() {
   const { t } = useLanguage()
@@ -67,6 +68,9 @@ export default function HomePageClient() {
       <section id="generator" className="container mx-auto px-4 pb-16">
         <LyricsGenerator />
       </section>
+
+      {/* Genre Guide Section */}
+      <GenreGuide />
 
       {/* Customer Reviews Section */}
       <section className="container mx-auto px-4 py-16">
