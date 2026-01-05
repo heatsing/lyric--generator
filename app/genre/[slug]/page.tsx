@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Music } from "lucide-react"
+import { Music, Sparkles, Zap } from "lucide-react"
 import LyricsGenerator from "@/components/lyrics-generator"
+import FAQ from "@/components/faq"
+import CustomerReviews from "@/components/customer-reviews"
 
 const genreData: Record<
   string,
@@ -83,6 +85,62 @@ const genreData: Record<
       "Generate bold diss track lyrics with AI. Perfect for rap battles featuring clever wordplay, sharp disses, and competitive energy.",
     keywords: ["diss track", "rap battle", "diss lyrics", "battle rap", "beef tracks"],
   },
+  edm: {
+    name: "Electronic",
+    displayName: "EDM Lyrics Generator",
+    description:
+      "Generate high-energy EDM lyrics with AI. Perfect for electronic dance music featuring pulsing beats, drops, and festival anthems.",
+    keywords: ["EDM lyrics", "electronic dance music", "festival anthems", "DJ music", "dance lyrics"],
+  },
+  reggae: {
+    name: "Reggae",
+    displayName: "Reggae Lyrics Generator",
+    description:
+      "Create authentic reggae lyrics with AI. Perfect for reggae music featuring positive vibes, social messages, and island rhythms.",
+    keywords: ["reggae lyrics", "reggae music", "island vibes", "roots reggae", "dancehall"],
+  },
+  blues: {
+    name: "Blues",
+    displayName: "Blues Lyrics Generator",
+    description:
+      "Generate soulful blues lyrics with AI. Perfect for blues music featuring emotional depth, storytelling, and classic 12-bar progressions.",
+    keywords: ["blues lyrics", "blues music", "12-bar blues", "soul blues", "blues songwriter"],
+  },
+  metal: {
+    name: "Metal",
+    displayName: "Metal Lyrics Generator",
+    description:
+      "Create powerful metal lyrics with AI. Perfect for heavy metal music featuring intense themes, powerful vocals, and aggressive energy.",
+    keywords: ["metal lyrics", "heavy metal", "metal music", "hard rock", "metal songwriter"],
+  },
+  indie: {
+    name: "Indie",
+    displayName: "Indie Lyrics Generator",
+    description:
+      "Generate authentic indie lyrics with AI. Perfect for indie music featuring introspective themes, unique perspectives, and alternative sounds.",
+    keywords: ["indie lyrics", "indie music", "alternative rock", "indie songwriter", "indie pop"],
+  },
+  "love-song": {
+    name: "Pop",
+    displayName: "Love Song Lyrics Generator",
+    description:
+      "Create romantic love song lyrics with AI. Perfect for expressing feelings of love, relationships, and emotional connections through music.",
+    keywords: ["love song lyrics", "romantic lyrics", "relationship songs", "love music", "romantic ballads"],
+  },
+  christmas: {
+    name: "Pop",
+    displayName: "Christmas Song Generator",
+    description:
+      "Generate festive Christmas song lyrics with AI. Perfect for holiday music featuring joy, celebration, and seasonal themes.",
+    keywords: ["christmas songs", "holiday lyrics", "festive music", "christmas carols", "holiday songs"],
+  },
+  birthday: {
+    name: "Pop",
+    displayName: "Birthday Song Generator",
+    description:
+      "Create personalized birthday song lyrics with AI. Perfect for celebrating special days with custom, memorable birthday music.",
+    keywords: ["birthday songs", "celebration lyrics", "party music", "birthday celebrations", "custom songs"],
+  },
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -145,9 +203,13 @@ export default function GenrePage({ params }: { params: { slug: string } }) {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-16 pb-12 md:pt-20 md:pb-12">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-balance leading-tight">
+      <section className="container mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            <Sparkles className="w-4 h-4" />
+            <span>AI-Powered {data.name} Lyrics</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance leading-tight">
             {data.displayName}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
@@ -157,8 +219,304 @@ export default function GenrePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Generator Section */}
-      <section className="container mx-auto px-4 pb-16">
+      <section id="generator" className="container mx-auto px-4 pb-16">
         <LyricsGenerator presetGenre={data.name} />
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="container mx-auto px-4 py-16">
+        <CustomerReviews />
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="container mx-auto px-4 py-16 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">
+            Why Choose Our {data.name} Lyrics Generator
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instant Generation</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Get professional {data.name.toLowerCase()} lyrics in seconds, powered by advanced AI technology.
+              </p>
+            </div>
+            <div className="bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4">
+                <Sparkles className="w-6 h-6 text-accent-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Genre-Specific</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Lyrics tailored specifically for {data.name.toLowerCase()} music with authentic style and themes.
+              </p>
+            </div>
+            <div className="bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <Music className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">100% Original</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Every lyric is uniquely generated, ensuring your {data.name.toLowerCase()} song is one-of-a-kind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section id="how-it-works" className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-balance">How It Works</h2>
+          <p className="text-center text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto leading-relaxed">
+            Create perfect {data.name.toLowerCase()} lyrics in just a few simple steps with our AI-powered generator.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
+                1
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-3">Choose Your Style</h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Select the mood and theme that matches your {data.name.toLowerCase()} song vision. Our AI understands
+                  the nuances of {data.name.toLowerCase()} music.
+                </p>
+                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
+                  <li>Pre-selected {data.name} genre</li>
+                  <li>Choose specific mood and theme</li>
+                  <li>Add custom keywords if desired</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
+                2
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-3">Customize Details</h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Fine-tune your lyrics with specific topics, length preferences, and language options to match your
+                  needs perfectly.
+                </p>
+                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
+                  <li>Add optional topics or keywords</li>
+                  <li>Choose song length</li>
+                  <li>Select preferred language</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
+                3
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-3">Generate & Download</h3>
+                <p className="text-muted-foreground leading-relaxed mb-3">
+                  Click generate and receive your custom {data.name.toLowerCase()} lyrics instantly. Copy, download, or
+                  regenerate as needed.
+                </p>
+                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
+                  <li>Instant AI generation</li>
+                  <li>Copy or download lyrics</li>
+                  <li>Unlimited regeneration</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
+              <div className="w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
+                💡
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold mb-3">Pro Tips</h3>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2 leading-relaxed">
+                  <li>Use specific keywords for better results</li>
+                  <li>Experiment with different moods</li>
+                  <li>Edit to add your personal touch</li>
+                  <li>Try multiple generations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="container mx-auto px-4 py-16 bg-muted/30">
+        <FAQ />
+      </section>
+
+      {/* Genre Quick Links */}
+      <section className="container mx-auto px-4 py-12 border-t border-border/50">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-lg font-semibold text-center mb-6 text-muted-foreground">Generate Lyrics by Genre</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/genre/rnb">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                R&B Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/rock">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Rock Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/pop">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Pop Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/rap">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Rap Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/elementary">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Elementary School Songs Generator
+              </Button>
+            </Link>
+            <Link href="/genre/folk">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Folk Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/jazz">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Jazz Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/kpop">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                K-Pop Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/country">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Country Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/diss-track">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Diss Track Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/edm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                EDM Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/reggae">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Reggae Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/blues">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Blues Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/metal">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Metal Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/indie">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Indie Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/love-song">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Love Song Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/christmas">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Christmas Song Generator
+              </Button>
+            </Link>
+            <Link href="/genre/birthday">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Birthday Song Generator
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
@@ -166,7 +524,7 @@ export default function GenrePage({ params }: { params: { slug: string } }) {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-sm text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} AI Lyrics Generator. All rights reserved.</p>
-            <p className="mt-2">Create amazing song lyrics with the power of artificial intelligence.</p>
+            <p className="mt-2">Create amazing {data.name.toLowerCase()} lyrics with the power of AI.</p>
           </div>
         </div>
       </footer>

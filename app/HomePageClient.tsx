@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import CustomerReviews from "@/components/customer-reviews"
 import { useLanguage } from "@/contexts/language-context"
 import LanguageSwitcher from "@/components/language-switcher"
-import SampleSongs from "@/components/sample-songs"
 
 export default function HomePageClient() {
   const { t } = useLanguage()
@@ -58,11 +57,6 @@ export default function HomePageClient() {
       {/* Generator Section */}
       <section id="generator" className="container mx-auto px-4 pb-16">
         <LyricsGenerator />
-      </section>
-
-      {/* Sample Songs Section */}
-      <section className="container mx-auto px-4 py-16 bg-muted/30">
-        <SampleSongs />
       </section>
 
       {/* Customer Reviews Section */}
@@ -278,6 +272,78 @@ export default function HomePageClient() {
                 className="hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
                 Diss Track Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/edm">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                EDM Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/reggae">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Reggae Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/blues">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Blues Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/metal">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Metal Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/indie">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Indie Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/love-song">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Love Song Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/christmas">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Christmas Song Generator
+              </Button>
+            </Link>
+            <Link href="/genre/birthday">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Birthday Song Generator
               </Button>
             </Link>
           </div>
