@@ -6,6 +6,7 @@ import { Languages } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { languages } from "@/lib/i18n"
 
+export { LanguageSwitcher }
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()
 
