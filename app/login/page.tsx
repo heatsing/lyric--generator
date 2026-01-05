@@ -9,21 +9,65 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLogin, setIsLogin] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
-  const handleGoogleLogin = () => {
-    // In production, this would integrate with Google OAuth
-    console.log("Google login initiated")
+  const handleGoogleLogin = async () => {
+    setIsLoading(true)
+    try {
+      await signIn("google", { callbackUrl: "/" })
+    } catch (error) {
+      console.error("Google login error:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In production, this would handle email/password authentication
-    console.log(isLogin ? "Login" : "Register", { email, password })
+    setIsLoading(true)
+
+    try {
+      if (isLogin) {
+        // Login with credentials
+        const result = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        })
+
+        if (result?.ok) {
+          router.push("/")
+        } else {
+          alert("Login failed. Please check your credentials.")
+        }
+      } else {
+        // Registration - in production, call your registration API
+        alert("Registration: In production, this would create a new user account.")
+        // After registration, automatically log in
+        const result = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        })
+
+        if (result?.ok) {
+          router.push("/")
+        }
+      }
+    } catch (error) {
+      console.error("Authentication error:", error)
+      alert("An error occurred. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -48,7 +92,13 @@ export default function LoginPage() {
             </div>
 
             {/* Google Login */}
-            <Button onClick={handleGoogleLogin} variant="outline" className="w-full bg-transparent" size="lg">
+            <Button
+              onClick={handleGoogleLogin}
+              variant="outline"
+              className="w-full bg-transparent"
+              size="lg"
+              disabled={isLoading}
+            >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -67,7 +117,7 @@ export default function LoginPage() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Continue with Google
+              {isLoading ? "Loading..." : "Continue with Google"}
             </Button>
 
             <div className="relative">
@@ -90,6 +140,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={isLoading}
                 />
               </div>
 
@@ -102,6 +153,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  disabled={isLoading}
                 />
               </div>
 
@@ -117,8 +169,8 @@ export default function LoginPage() {
                 </div>
               )}
 
-              <Button type="submit" className="w-full" size="lg">
-                {isLogin ? "Sign In" : "Create Account"}
+              <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+                {isLoading ? "Loading..." : isLogin ? "Sign In" : "Create Account"}
               </Button>
             </form>
 
@@ -127,7 +179,11 @@ export default function LoginPage() {
               <span className="text-muted-foreground">
                 {isLogin ? "Don't have an account? " : "Already have an account? "}
               </span>
-              <button onClick={() => setIsLogin(!isLogin)} className="text-primary hover:underline font-medium">
+              <button
+                onClick={() => setIsLogin(!isLogin)}
+                className="text-primary hover:underline font-medium"
+                disabled={isLoading}
+              >
                 {isLogin ? "Sign up" : "Sign in"}
               </button>
             </div>
