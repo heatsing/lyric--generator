@@ -1,15 +1,30 @@
-import HomePageClient from "./HomePageClient" // Import the client component
+import HomePageClient from "./HomePageClient" // Assuming HomePageClient is a component in the same directory
 
 export const metadata = {
-  title: "AI Lyrics Generator - Create Original Song Lyrics with AI | Free Online Tool",
+  title: "Free AI Lyrics Generator - Create Original Song Lyrics Instantly | AI Songwriting Tool 2025",
   description:
-    "Generate unique, creative song lyrics instantly with our AI-powered lyrics generator. Free online tool for songwriters, musicians, and creators. Create lyrics in any genre, mood, and language.",
+    "Generate unique song lyrics with our free AI lyrics generator. Create professional lyrics for any genre - pop, rock, rap, country & more. Perfect for songwriters, musicians, and content creators. No sign-up required.",
   keywords:
-    "ai lyrics generator, song lyrics generator, free lyrics maker, ai songwriting, lyrics creator, music lyrics, songwriting tool, lyric writing ai",
+    "ai lyrics generator, song lyrics generator free, lyric maker, ai songwriting tool, create song lyrics, automatic lyrics generator, write song lyrics, music lyrics creator, rap lyrics generator, pop lyrics maker, free songwriting software",
   openGraph: {
-    title: "AI Lyrics Generator - Create Original Song Lyrics Instantly",
-    description: "Generate unique song lyrics with AI. Free tool for songwriters and musicians worldwide.",
+    title: "Free AI Lyrics Generator - Create Original Songs Instantly",
+    description: "Generate professional song lyrics in seconds with AI. Free tool for all music genres. Try it now!",
     type: "website",
+    url: "https://ailyricsgenerator.com",
+  },
+  alternates: {
+    canonical: "https://ailyricsgenerator.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 

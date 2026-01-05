@@ -25,10 +25,19 @@ export default function HomePageClient() {
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-foreground transition-colors">
-              {t.nav.lyricsGenerator}
+              Lyric Generator
             </Link>
-            <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t.nav.pricing}
+            <Link
+              href="/poem-generator"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Poem Generator
+            </Link>
+            <Link
+              href="/story-generator"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Short Story Generator
             </Link>
             <LanguageSwitcher />
             <Link href="/login">
@@ -182,168 +191,150 @@ export default function HomePageClient() {
       {/* Genre Quick Links Section */}
       <section className="container mx-auto px-4 py-12 border-t border-border/50">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-lg font-semibold text-center mb-6 text-muted-foreground">Generate Lyrics by Genre</h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <h3 className="text-2xl font-bold text-center mb-8">Generate Lyrics by Genre</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             <Link href="/genre/rnb">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                R&B Lyrics Generator
+                R&B Lyrics
               </Button>
             </Link>
             <Link href="/genre/rock">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Rock Lyrics Generator
+                Rock Lyrics
               </Button>
             </Link>
             <Link href="/genre/pop">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Pop Lyrics Generator
+                Pop Lyrics
               </Button>
             </Link>
             <Link href="/genre/rap">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Rap Lyrics Generator
-              </Button>
-            </Link>
-            <Link href="/genre/elementary">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
-              >
-                Elementary School Songs Generator
+                Rap Lyrics
               </Button>
             </Link>
             <Link href="/genre/folk">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Folk Lyrics Generator
+                Folk Lyrics
               </Button>
             </Link>
             <Link href="/genre/jazz">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Jazz Lyrics Generator
+                Jazz Lyrics
               </Button>
             </Link>
             <Link href="/genre/kpop">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                K-Pop Lyrics Generator
+                K-Pop Lyrics
               </Button>
             </Link>
             <Link href="/genre/country">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Country Lyrics Generator
-              </Button>
-            </Link>
-            <Link href="/genre/diss-track">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
-              >
-                Diss Track Lyrics Generator
+                Country Lyrics
               </Button>
             </Link>
             <Link href="/genre/edm">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                EDM Lyrics Generator
+                EDM Lyrics
               </Button>
             </Link>
             <Link href="/genre/reggae">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Reggae Lyrics Generator
+                Reggae Lyrics
               </Button>
             </Link>
             <Link href="/genre/blues">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Blues Lyrics Generator
+                Blues Lyrics
               </Button>
             </Link>
             <Link href="/genre/metal">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Metal Lyrics Generator
+                Metal Lyrics
               </Button>
             </Link>
             <Link href="/genre/indie">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Indie Lyrics Generator
+                Indie Lyrics
               </Button>
             </Link>
             <Link href="/genre/love-song">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Love Song Lyrics Generator
+                Love Songs
               </Button>
             </Link>
             <Link href="/genre/christmas">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Christmas Song Generator
+                Christmas Songs
               </Button>
             </Link>
             <Link href="/genre/birthday">
               <Button
                 variant="outline"
                 size="sm"
-                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
-                Birthday Song Generator
+                Birthday Songs
               </Button>
             </Link>
           </div>
@@ -357,7 +348,6 @@ export default function HomePageClient() {
             <p>
               &copy; {new Date().getFullYear()} AI Lyrics Generator. {t.footer.rights}
             </p>
-            <p className="mt-2">{t.footer.tagline}</p>
           </div>
         </div>
       </footer>
