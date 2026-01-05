@@ -102,13 +102,13 @@ export default function HomePageClient() {
 
       {/* How It Works */}
       <section id="how-it-works" className="container mx-auto px-4 py-16 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-balance">How It Works</h2>
           <p className="text-center text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto leading-relaxed">
             Our AI-powered lyrics generator uses advanced language models to create original, creative lyrics tailored
             to your specifications. Here's how to get started:
           </p>
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
               <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
                 1
@@ -121,8 +121,8 @@ export default function HomePageClient() {
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
                   <li>Pick from 15+ popular music genres</li>
-                  <li>Choose a mood that matches your vision (happy, sad, energetic, etc.)</li>
-                  <li>Select a theme to guide the lyrical content</li>
+                  <li>Choose a mood that matches your vision</li>
+                  <li>Select a theme to guide the content</li>
                 </ul>
               </div>
             </div>
@@ -137,10 +137,10 @@ export default function HomePageClient() {
                   structure and length to match your needs.
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Add optional keywords or specific topics (e.g., "summer nights", "first kiss")</li>
-                  <li>Choose song length: short, medium, or long format</li>
-                  <li>Select your preferred language for multilingual support</li>
-                  <li>All settings work together to create the perfect lyrics</li>
+                  <li>Add optional keywords or topics</li>
+                  <li>Choose song length preference</li>
+                  <li>Select your preferred language</li>
+                  <li>All settings work together perfectly</li>
                 </ul>
               </div>
             </div>
@@ -149,17 +149,16 @@ export default function HomePageClient() {
                 3
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Generate, Edit & Export</h3>
+                <h3 className="text-xl font-semibold mb-3">Generate & Export</h3>
                 <p className="text-muted-foreground leading-relaxed mb-3">
-                  Click the generate button and watch as AI creates your unique lyrics in seconds. Not satisfied?
-                  Regenerate or manually edit the results until they're perfect.
+                  Click the generate button and watch as AI creates your unique lyrics in seconds. Edit, copy, or
+                  download the results.
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Instant generation powered by advanced AI models</li>
-                  <li>Edit lyrics directly in the output panel</li>
-                  <li>Copy to clipboard with one click</li>
-                  <li>Download as a text file for easy sharing</li>
-                  <li>Regenerate unlimited times until you're satisfied</li>
+                  <li>Instant AI-powered generation</li>
+                  <li>Edit lyrics directly in the output</li>
+                  <li>Copy to clipboard or download</li>
+                  <li>Regenerate unlimited times</li>
                 </ul>
               </div>
             </div>
@@ -168,13 +167,12 @@ export default function HomePageClient() {
                 💡
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Pro Tips for Best Results</h3>
+                <h3 className="text-xl font-semibold mb-3">Pro Tips</h3>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2 leading-relaxed">
-                  <li>Be specific with your keywords to get more targeted results</li>
-                  <li>Experiment with different mood and genre combinations</li>
-                  <li>Try multiple generations to explore different creative directions</li>
-                  <li>Edit the output to add your personal touch and make it truly yours</li>
-                  <li>Save your favorite settings for future use</li>
+                  <li>Be specific with keywords for better results</li>
+                  <li>Try different mood combinations</li>
+                  <li>Edit output to add personal touch</li>
+                  <li>Save your favorite settings</li>
                 </ul>
               </div>
             </div>
@@ -185,6 +183,105 @@ export default function HomePageClient() {
       {/* FAQ Section */}
       <section id="faq" className="container mx-auto px-4 py-16">
         <FAQ />
+      </section>
+
+      {/* Genre Quick Links Section */}
+      <section className="container mx-auto px-4 py-12 border-t border-border/50">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-lg font-semibold text-center mb-6 text-muted-foreground">Generate Lyrics by Genre</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/genre/rnb">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                R&B Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/rock">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Rock Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/pop">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Pop Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/rap">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Rap Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/elementary">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Elementary School Songs Generator
+              </Button>
+            </Link>
+            <Link href="/genre/folk">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Folk Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/jazz">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Jazz Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/kpop">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                K-Pop Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/country">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Country Lyrics Generator
+              </Button>
+            </Link>
+            <Link href="/genre/diss-track">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Diss Track Lyrics Generator
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}

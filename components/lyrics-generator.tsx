@@ -70,8 +70,12 @@ const LENGTHS = [
   { value: "long", label: "Long (3 verses + chorus + bridge)" },
 ]
 
-export default function LyricsGenerator() {
-  const [genre, setGenre] = useState("Pop")
+interface LyricsGeneratorProps {
+  presetGenre?: string
+}
+
+export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
+  const [genre, setGenre] = useState(presetGenre || "Pop")
   const [mood, setMood] = useState("Happy")
   const [theme, setTheme] = useState("Love")
   const [topic, setTopic] = useState("")
@@ -394,75 +398,72 @@ export default function LyricsGenerator() {
               <Textarea
                 value={lyrics}
                 onChange={(e) => setLyrics(e.target.value)}
-                className="min-h-[350px] font-mono text-sm leading-relaxed resize-none"
+                className="min-h-[450px] font-mono text-sm leading-relaxed resize-none"
                 placeholder="Your generated lyrics will appear here..."
               />
+              {!audioUrl ? (
+                <Button
+                  onClick={handleConvertToSong}
+                  disabled={isConverting}
+                  className="w-full"
+                  size="lg"
+                  variant="secondary"
+                >
+                  {isConverting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Converting to Song...
+                    </>
+                  ) : (
+                    <>
+                      <Music2 className="w-5 h-5 mr-2" />
+                      Convert Lyrics to Song
+                    </>
+                  )}
+                </Button>
+              ) : (
+                <div className="space-y-3">
+                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-6 border border-border/50">
+                    <div className="flex items-center gap-4">
+                      <Button onClick={togglePlayPause} size="lg" className="w-14 h-14 rounded-full flex-shrink-0">
+                        {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
+                      </Button>
 
-              <div className="space-y-3">
-                {!audioUrl ? (
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Volume2 className="w-4 h-4 text-muted-foreground" />
+                          <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-primary transition-all duration-300"
+                              style={{ width: isPlaying ? "60%" : "0%" }}
+                            />
+                          </div>
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {genre} • {mood} • AI Generated Song
+                        </p>
+                      </div>
+
+                      <Button onClick={handleDownloadAudio} variant="outline" size="sm">
+                        <Download className="w-4 h-4 mr-2" />
+                        Download
+                      </Button>
+                    </div>
+                  </div>
+
                   <Button
                     onClick={handleConvertToSong}
                     disabled={isConverting}
-                    className="w-full"
-                    size="lg"
-                    variant="secondary"
+                    variant="outline"
+                    className="w-full bg-transparent"
                   >
-                    {isConverting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Converting to Song...
-                      </>
-                    ) : (
-                      <>
-                        <Music2 className="w-5 h-5 mr-2" />
-                        Convert Lyrics to Song
-                      </>
-                    )}
+                    <RotateCw className="w-4 h-4 mr-2" />
+                    Regenerate Song
                   </Button>
-                ) : (
-                  <div className="space-y-3">
-                    <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg p-6 border border-border/50">
-                      <div className="flex items-center gap-4">
-                        <Button onClick={togglePlayPause} size="lg" className="w-14 h-14 rounded-full flex-shrink-0">
-                          {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-0.5" />}
-                        </Button>
 
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Volume2 className="w-4 h-4 text-muted-foreground" />
-                            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                              <div
-                                className="h-full bg-primary transition-all duration-300"
-                                style={{ width: isPlaying ? "60%" : "0%" }}
-                              />
-                            </div>
-                          </div>
-                          <p className="text-sm text-muted-foreground">
-                            {genre} • {mood} • AI Generated Song
-                          </p>
-                        </div>
-
-                        <Button onClick={handleDownloadAudio} variant="outline" size="sm">
-                          <Download className="w-4 h-4 mr-2" />
-                          Download
-                        </Button>
-                      </div>
-                    </div>
-
-                    <Button
-                      onClick={handleConvertToSong}
-                      disabled={isConverting}
-                      variant="outline"
-                      className="w-full bg-transparent"
-                    >
-                      <RotateCw className="w-4 h-4 mr-2" />
-                      Regenerate Song
-                    </Button>
-
-                    <audio ref={audioRef} src={audioUrl} className="hidden" />
-                  </div>
-                )}
-              </div>
+                  <audio ref={audioRef} src={audioUrl} className="hidden" />
+                </div>
+              )}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full py-16 text-center">
