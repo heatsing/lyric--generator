@@ -1,68 +1,22 @@
 "use client"
 
+import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
+import { HeroSection } from "@/components/HeroSection"
+import { FeaturesSection } from "@/components/FeaturesSection"
+import { CustomerReviews } from "@/components/customer-reviews"
+import { FAQ } from "@/components/faq"
 import LyricsGenerator from "@/components/lyrics-generator"
-import { Music, Sparkles, Zap } from "lucide-react"
-import FAQ from "@/components/faq"
+import GenreGuide from "@/components/genre-guide"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import CustomerReviews from "@/components/customer-reviews"
-import { useLanguage } from "@/contexts/language-context"
-import LanguageSwitcher from "@/components/language-switcher"
-import GenreGuide from "@/components/genre-guide"
 
 export default function HomePageClient() {
-  const { t } = useLanguage()
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
-      {/* Header */}
-      <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Music className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold text-balance">AI Lyrics Generator</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-foreground transition-colors">
-              Lyric Generator
-            </Link>
-            <Link
-              href="/poem-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Poem Generator
-            </Link>
-            <Link
-              href="/story-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Short Story Generator
-            </Link>
-            <LanguageSwitcher />
-            <Link href="/login">
-              <Button size="sm">{t.nav.login}</Button>
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <Sparkles className="w-4 h-4" />
-            <span>{t.hero.badge}</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance leading-tight">
-            {t.hero.title} <span className="text-primary">{t.hero.titleHighlight}</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-            {t.hero.description}
-          </p>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Generator Section */}
       <section id="generator" className="container mx-auto px-4 pb-16">
@@ -77,35 +31,7 @@ export default function HomePageClient() {
         <CustomerReviews />
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="container mx-auto px-4 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">{t.features.title}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{t.features.fast}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t.features.fastDesc}</p>
-            </div>
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-accent-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{t.features.customizable}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t.features.customizableDesc}</p>
-            </div>
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <Music className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{t.features.original}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t.features.originalDesc}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FeaturesSection />
 
       {/* How It Works */}
       <section id="how-it-works" className="container mx-auto px-4 py-16 bg-muted/30">
@@ -206,84 +132,84 @@ export default function HomePageClient() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <Link
               href="/generator/happy-pop-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Happy Pop Lyrics</h3>
               <p className="text-xs text-muted-foreground">Upbeat pop songs</p>
             </Link>
             <Link
               href="/generator/sad-rap-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Sad Rap Lyrics</h3>
               <p className="text-xs text-muted-foreground">Emotional rap verses</p>
             </Link>
             <Link
               href="/generator/romantic-rnb-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Romantic R&B Lyrics</h3>
               <p className="text-xs text-muted-foreground">Love songs in R&B style</p>
             </Link>
             <Link
               href="/generator/energetic-rock-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Energetic Rock Lyrics</h3>
               <p className="text-xs text-muted-foreground">High-energy rock anthems</p>
             </Link>
             <Link
               href="/generator/love-pop-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Love Pop Lyrics</h3>
               <p className="text-xs text-muted-foreground">Romantic pop ballads</p>
             </Link>
             <Link
               href="/generator/breakup-country-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Breakup Country Lyrics</h3>
               <p className="text-xs text-muted-foreground">Heartbreak country songs</p>
             </Link>
             <Link
               href="/generator/party-edm-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Party EDM Lyrics</h3>
               <p className="text-xs text-muted-foreground">Club and party tracks</p>
             </Link>
             <Link
               href="/generator/diss-track-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Diss Track Lyrics</h3>
               <p className="text-xs text-muted-foreground">Rap battle verses</p>
             </Link>
             <Link
               href="/generator/birthday-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Birthday Song Lyrics</h3>
               <p className="text-xs text-muted-foreground">Celebration songs</p>
             </Link>
             <Link
               href="/generator/christmas-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Christmas Song Lyrics</h3>
               <p className="text-xs text-muted-foreground">Holiday music</p>
             </Link>
             <Link
               href="/generator/trap-beat-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Trap Beat Lyrics</h3>
               <p className="text-xs text-muted-foreground">Modern trap music</p>
             </Link>
             <Link
               href="/generator/motivational-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all"
+              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
             >
               <h3 className="font-semibold mb-1">Motivational Song Lyrics</h3>
               <p className="text-xs text-muted-foreground">Inspirational anthems</p>
@@ -307,7 +233,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 R&B Lyrics
               </Button>
@@ -316,7 +242,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Rock Lyrics
               </Button>
@@ -325,7 +251,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Pop Lyrics
               </Button>
@@ -334,7 +260,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Rap Lyrics
               </Button>
@@ -343,7 +269,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Elementary School Songs
               </Button>
@@ -352,7 +278,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Folk Lyrics
               </Button>
@@ -361,7 +287,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Jazz Lyrics
               </Button>
@@ -370,7 +296,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 K-Pop Lyrics
               </Button>
@@ -379,7 +305,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Country Lyrics
               </Button>
@@ -388,7 +314,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Diss Track Lyrics
               </Button>
@@ -397,7 +323,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 EDM Lyrics
               </Button>
@@ -406,7 +332,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Reggae Lyrics
               </Button>
@@ -415,7 +341,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Blues Lyrics
               </Button>
@@ -424,7 +350,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Metal Lyrics
               </Button>
@@ -433,7 +359,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Indie Lyrics
               </Button>
@@ -442,7 +368,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Love Songs
               </Button>
@@ -451,7 +377,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Christmas Songs
               </Button>
@@ -460,7 +386,7 @@ export default function HomePageClient() {
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
               >
                 Birthday Songs
               </Button>
@@ -469,16 +395,7 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50 mt-16">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center text-sm text-muted-foreground">
-            <p>
-              &copy; {new Date().getFullYear()} AI Lyrics Generator. {t.footer.rights}
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
