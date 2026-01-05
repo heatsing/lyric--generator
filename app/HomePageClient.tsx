@@ -229,6 +229,15 @@ export default function HomePageClient() {
                 Rap Lyrics
               </Button>
             </Link>
+            <Link href="/genre/elementary-school-songs">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Elementary School Songs
+              </Button>
+            </Link>
             <Link href="/genre/folk">
               <Button
                 variant="outline"
@@ -263,6 +272,15 @@ export default function HomePageClient() {
                 className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
               >
                 Country Lyrics
+              </Button>
+            </Link>
+            <Link href="/genre/diss-track">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                Diss Track Lyrics
               </Button>
             </Link>
             <Link href="/genre/edm">
@@ -319,7 +337,7 @@ export default function HomePageClient() {
                 Love Songs
               </Button>
             </Link>
-            <Link href="/genre/christmas">
+            <Link href="/genre/christmas-song">
               <Button
                 variant="outline"
                 size="sm"
@@ -328,7 +346,7 @@ export default function HomePageClient() {
                 Christmas Songs
               </Button>
             </Link>
-            <Link href="/genre/birthday">
+            <Link href="/genre/birthday-song">
               <Button
                 variant="outline"
                 size="sm"
