@@ -31,45 +31,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const popularGenerators = [
-    "happy-pop-lyrics",
-    "sad-rap-lyrics",
-    "romantic-rnb-lyrics",
-    "energetic-rock-lyrics",
-    "love-pop-lyrics",
-    "breakup-country-lyrics",
-    "party-edm-lyrics",
-    "diss-track-lyrics",
-    "birthday-song-lyrics",
-    "christmas-song-lyrics",
-    "trap-beat-lyrics",
-    "motivational-song-lyrics",
-    "melancholic-indie-lyrics",
-    "angry-metal-lyrics",
-    "chill-jazz-lyrics",
-    "nostalgic-folk-lyrics",
-  ]
-
-  const generatorPages = popularGenerators.map((slug) => ({
-    url: `${baseUrl}/generator/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-  }))
-
   let dynamicGeneratorPages: MetadataRoute.Sitemap = []
   try {
-    // This will be populated when seo_pages.json is generated
     const seoPages = require("@/data/seo_pages.json")
-    dynamicGeneratorPages = seoPages.slice(0, 100).map((page: any) => ({
+    dynamicGeneratorPages = seoPages.map((page: any) => ({
       url: `${baseUrl}/generator/${page.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.85,
     }))
   } catch (error) {
-    // JSON file not yet generated, use manual list above
-    console.log("SEO pages JSON not found, using manual generator list")
+    console.log("SEO pages JSON not found, run: python scripts/seo_generator.py")
   }
 
   return [
@@ -92,12 +64,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/login`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     ...genrePages,
-    ...(dynamicGeneratorPages.length > 0 ? dynamicGeneratorPages : generatorPages),
+    ...dynamicGeneratorPages,
   ]
 }

@@ -62,13 +62,13 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div className="grid lg:grid-cols-2 gap-8 pb-[50vh] lg:pb-8">
       {/* Left Panel - Input */}
       <Card className="p-6 space-y-6">
         <div className="space-y-2">
           <Label>Genre</Label>
           <Select value={genre} onValueChange={setGenre}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue placeholder="Select a genre" />
             </SelectTrigger>
             <SelectContent>
@@ -89,7 +89,7 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
         <div className="space-y-2">
           <Label>Mood</Label>
           <Select value={mood} onValueChange={setMood}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue placeholder="Select a mood" />
             </SelectTrigger>
             <SelectContent>
@@ -107,7 +107,7 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
         <div className="space-y-2">
           <Label>Theme</Label>
           <Select value={theme} onValueChange={setTheme}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue placeholder="Select a theme" />
             </SelectTrigger>
             <SelectContent>
@@ -129,13 +129,14 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
             onChange={(e) => setTopic(e.target.value)}
             placeholder="Enter a specific topic or keywords..."
             rows={3}
+            className="text-base resize-none"
           />
         </div>
 
         <div className="space-y-2">
           <Label>Length</Label>
           <Select value={length} onValueChange={setLength}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -149,7 +150,7 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
         <div className="space-y-2">
           <Label>Language</Label>
           <Select value={language} onValueChange={setLanguage}>
-            <SelectTrigger>
+            <SelectTrigger className="h-12 text-base">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -164,7 +165,7 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
           </Select>
         </div>
 
-        <Button onClick={handleGenerate} disabled={loading} className="w-full" size="lg">
+        <Button onClick={handleGenerate} disabled={loading} className="w-full h-12 text-base" size="lg">
           {loading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -183,23 +184,41 @@ export function GeneratorClient({ preset }: GeneratorClientProps) {
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-semibold">Generated Lyrics</h3>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={handleCopy}>
-                  <Copy className="h-4 w-4 mr-2" />
-                  Copy
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleCopy}
+                  className="min-h-[44px] min-w-[44px] bg-transparent"
+                >
+                  <Copy className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Copy</span>
                 </Button>
-                <Button variant="outline" size="sm" onClick={handleDownload}>
-                  <Download className="h-4 w-4 mr-2" />
-                  Download
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleDownload}
+                  className="min-h-[44px] min-w-[44px] bg-transparent"
+                >
+                  <Download className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline">Download</span>
                 </Button>
-                <Button variant="outline" size="sm" onClick={handleGenerate} disabled={loading}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleGenerate}
+                  disabled={loading}
+                  className="min-h-[44px] min-w-[44px] bg-transparent"
+                >
                   <RefreshCw className="h-4 w-4" />
                 </Button>
               </div>
             </div>
-            <div className="bg-muted p-6 rounded-lg whitespace-pre-wrap font-mono text-sm min-h-[400px]">{lyrics}</div>
+            <div className="bg-muted p-4 sm:p-6 rounded-lg whitespace-pre-wrap font-mono text-sm sm:text-base min-h-[400px] overflow-auto">
+              {lyrics}
+            </div>
           </div>
         ) : (
-          <div className="h-full min-h-[400px] flex items-center justify-center text-muted-foreground">
+          <div className="h-full min-h-[400px] flex items-center justify-center text-muted-foreground text-center px-4">
             Generate your lyrics to see them here
           </div>
         )}

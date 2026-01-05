@@ -8,6 +8,46 @@ themes = ["Love", "Breakup", "Party", "Life", "Dreams", "Freedom", "Friendship",
 occasions = ["Birthday", "Christmas", "Wedding", "Graduation", "Valentine", "New Year", "Summer", "Halloween"]
 styles = ["Acoustic", "Trap", "Drill", "Lo-fi", "Ballad", "Anthem", "Freestyle"]
 
+genre_unique_descriptions = {
+    "Pop": "Pop lyrics are characterized by catchy hooks, relatable themes, and memorable choruses. Perfect for mainstream audiences and radio-friendly content.",
+    "Rap": "Rap lyrics focus on rhythm, wordplay, and storytelling. Craft powerful bars with clever metaphors, internal rhymes, and authentic flow.",
+    "Rock": "Rock lyrics embody raw emotion, rebellion, and powerful imagery. Create anthemic choruses and verse narratives that resonate with energy.",
+    "R&B": "R&B lyrics blend soulful storytelling with smooth, emotional delivery. Perfect for love songs, personal reflections, and heartfelt ballads.",
+    "Country": "Country lyrics tell authentic stories of life, love, and heartache. Rich with vivid imagery and down-to-earth narratives.",
+    "Jazz": "Jazz lyrics are sophisticated and poetic, exploring complex emotions with timeless elegance and smooth phrasing.",
+    "EDM": "EDM lyrics are energetic and uplifting, designed for festival anthems and high-energy dance floors. Focus on memorable hooks.",
+    "K-Pop": "K-Pop lyrics combine catchy Korean and English phrases with dynamic energy. Perfect for trend-setting, performance-ready songs.",
+    "Folk": "Folk lyrics embrace storytelling traditions, acoustic simplicity, and authentic human experiences with poetic depth.",
+    "Metal": "Metal lyrics channel intensity, aggression, and powerful themes. Dark imagery and commanding language define the genre.",
+    "Indie": "Indie lyrics prioritize authenticity and creative freedom. Explore unique perspectives with artistic, non-mainstream expression.",
+    "Blues": "Blues lyrics express raw emotion, struggle, and resilience. Rooted in African-American musical traditions with deep soul.",
+    "Reggae": "Reggae lyrics promote unity, love, and social consciousness. Laid-back rhythm with meaningful, positive messages."
+}
+
+def generate_unique_description(genre, mood, theme):
+    """Generate unique descriptions for each page to avoid duplicate content penalties"""
+    base = genre_unique_descriptions.get(genre, "AI-powered lyrics generation")
+    
+    mood_phrases = {
+        "Happy": "uplifting and joyful",
+        "Sad": "melancholic and emotional",
+        "Romantic": "heartfelt and passionate",
+        "Energetic": "high-energy and dynamic",
+        "Melancholic": "introspective and contemplative",
+        "Angry": "intense and powerful",
+        "Chill": "relaxed and mellow",
+        "Inspirational": "motivating and empowering",
+        "Dark": "brooding and atmospheric",
+        "Nostalgic": "reflective and sentimental"
+    }
+    
+    if mood and mood in mood_phrases:
+        return f"{base} Our {mood.lower()} {genre.lower()} generator creates {mood_phrases[mood]} lyrics that capture authentic emotion."
+    elif theme:
+        return f"{base} Generate {genre.lower()} lyrics focused on {theme.lower()} with professional quality and instant results."
+    else:
+        return base
+
 def generate_pages():
     pages = []
     page_id = 1
@@ -17,8 +57,8 @@ def generate_pages():
         for mood in moods:
             slug = f"{mood.lower()}-{genre.lower()}-lyrics"
             title = f"{mood} {genre} Lyrics Generator"
-            description = f"Create {mood.lower()} {genre.lower()} song lyrics instantly with AI. Perfect for {mood.lower()} {genre.lower()} songs, free and unlimited."
-            keywords = f"{mood.lower()} {genre.lower()} lyrics, {genre.lower()} song generator, {mood.lower()} songs"
+            description = generate_unique_description(genre, mood, None)
+            keywords = f"{mood.lower()} {genre.lower()} lyrics, {genre.lower()} song generator, {mood.lower()} songs, AI lyrics generator"
             
             pages.append({
                 "id": page_id,
@@ -41,8 +81,8 @@ def generate_pages():
         for theme in themes:
             slug = f"{theme.lower()}-{genre.lower()}-lyrics"
             title = f"{theme} {genre} Lyrics Generator"
-            description = f"Generate {genre.lower()} lyrics about {theme.lower()}. AI-powered {genre.lower()} song lyrics generator for {theme.lower()} themed songs."
-            keywords = f"{theme.lower()} {genre.lower()} lyrics, {genre.lower()} {theme.lower()} songs"
+            description = generate_unique_description(genre, None, theme)
+            keywords = f"{theme.lower()} {genre.lower()} lyrics, {genre.lower()} {theme.lower()} songs, {theme.lower()} song generator"
             
             pages.append({
                 "id": page_id,
@@ -64,8 +104,8 @@ def generate_pages():
     for occasion in occasions:
         slug = f"{occasion.lower()}-song-lyrics"
         title = f"{occasion} Song Lyrics Generator"
-        description = f"Create perfect {occasion.lower()} song lyrics with AI. Generate custom {occasion.lower()} songs for your special celebration."
-        keywords = f"{occasion.lower()} song lyrics, {occasion.lower()} songs, {occasion.lower()} music generator"
+        description = f"Create perfect {occasion.lower()} song lyrics with AI. Generate custom {occasion.lower()} songs for your special celebration instantly and free."
+        keywords = f"{occasion.lower()} song lyrics, {occasion.lower()} songs, {occasion.lower()} music generator, {occasion.lower()} lyrics AI"
         
         pages.append({
             "id": page_id,
@@ -88,8 +128,8 @@ def generate_pages():
         for genre in genres:
             slug = f"{style.lower()}-{genre.lower()}-lyrics"
             title = f"{style} {genre} Lyrics Generator"
-            description = f"Generate {style.lower()} {genre.lower()} lyrics with AI. Create authentic {style.lower()} style {genre.lower()} songs instantly."
-            keywords = f"{style.lower()} {genre.lower()}, {genre.lower()} {style.lower()} lyrics"
+            description = f"Generate {style.lower()} {genre.lower()} lyrics with AI. Create authentic {style.lower()} style {genre.lower()} songs with professional quality instantly."
+            keywords = f"{style.lower()} {genre.lower()}, {genre.lower()} {style.lower()} lyrics, {style.lower()} lyrics generator"
             
             pages.append({
                 "id": page_id,
@@ -119,6 +159,7 @@ def generate_pages():
         {"slug": "drill-rap-lyrics", "title": "Drill Rap Lyrics Generator", "genre": "Drill", "mood": "Aggressive", "topic": "drill rap"},
         {"slug": "emo-rap-lyrics", "title": "Emo Rap Lyrics Generator", "genre": "Rap", "mood": "Sad", "topic": "emo rap"},
         {"slug": "motivational-song-lyrics", "title": "Motivational Song Lyrics Generator", "genre": "Pop", "mood": "Inspirational", "topic": "motivation and success"},
+        {"slug": "party-edm-lyrics", "title": "Party EDM Lyrics Generator", "genre": "EDM", "mood": "Energetic", "topic": "party anthem"},
     ]
     
     for kw in hot_keywords:
@@ -126,9 +167,9 @@ def generate_pages():
             "id": page_id,
             "slug": kw["slug"],
             "title": kw["title"],
-            "description": f"Create {kw['title'].lower()} with AI. Free and unlimited lyrics generation.",
+            "description": f"Create {kw['title'].lower()} with AI. Free and unlimited lyrics generation for {kw['topic']}.",
             "h1": f"AI {kw['title']}",
-            "keywords": kw["slug"].replace("-", " "),
+            "keywords": kw["slug"].replace("-", " ") + ", AI lyrics, song generator",
             "preset": {
                 "genre": kw["genre"],
                 "mood": kw["mood"],
@@ -159,7 +200,8 @@ def main():
     print(f"  - 流派+主题组合: {len(genres) * len(themes)} 页")
     print(f"  - 场合专题: {len(occasions)} 页")
     print(f"  - 风格特定: {len(styles) * len(genres)} 页")
-    print(f"  - 热门关键词: 10+ 页")
+    print(f"  - 热门关键词: 11 页")
+    print(f"\n🎯 SEO优化: 每个页面都有独特的描述，避免重复内容惩罚")
 
 if __name__ == "__main__":
     main()
