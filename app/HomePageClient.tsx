@@ -6,6 +6,9 @@ import { HeroSection } from "@/components/HeroSection"
 import { FeaturesSection } from "@/components/FeaturesSection"
 import { CustomerReviews } from "@/components/customer-reviews"
 import { FAQ } from "@/components/faq"
+import { TrustBadges } from "@/components/TrustBadges"
+import { SocialProof } from "@/components/SocialProof"
+import { CTASection } from "@/components/CTASection"
 import LyricsGenerator from "@/components/lyrics-generator"
 import GenreGuide from "@/components/genre-guide"
 import Link from "next/link"
@@ -18,8 +21,12 @@ export default function HomePageClient() {
 
       <HeroSection />
 
+      <TrustBadges />
+
+      <SocialProof />
+
       {/* Generator Section */}
-      <section id="generator" className="container mx-auto px-4 pb-16">
+      <section id="generator" className="container mx-auto px-4 pb-16 pt-8">
         <LyricsGenerator />
       </section>
 
@@ -118,280 +125,42 @@ export default function HomePageClient() {
         <FAQ />
       </section>
 
-      {/* Popular Generators Section */}
-      <section className="container mx-auto px-4 py-16 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Popular Lyric Generators</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Explore our collection of specialized AI-powered lyric generators. Each generator is optimized for
-              specific genres, moods, and themes to help you create the perfect song.
-            </p>
-          </div>
+      <CTASection />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <Link
-              href="/generator/happy-pop-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Happy Pop Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Upbeat pop songs</p>
-            </Link>
-            <Link
-              href="/generator/sad-rap-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Sad Rap Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Emotional rap verses</p>
-            </Link>
-            <Link
-              href="/generator/romantic-rnb-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Romantic R&B Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Love songs in R&B style</p>
-            </Link>
-            <Link
-              href="/generator/energetic-rock-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Energetic Rock Lyrics</h3>
-              <p className="text-xs text-muted-foreground">High-energy rock anthems</p>
-            </Link>
-            <Link
-              href="/generator/love-pop-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Love Pop Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Romantic pop ballads</p>
-            </Link>
-            <Link
-              href="/generator/breakup-country-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Breakup Country Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Heartbreak country songs</p>
-            </Link>
-            <Link
-              href="/generator/party-edm-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Party EDM Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Club and party tracks</p>
-            </Link>
-            <Link
-              href="/generator/diss-track-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Diss Track Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Rap battle verses</p>
-            </Link>
-            <Link
-              href="/generator/birthday-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Birthday Song Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Celebration songs</p>
-            </Link>
-            <Link
-              href="/generator/christmas-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Christmas Song Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Holiday music</p>
-            </Link>
-            <Link
-              href="/generator/trap-beat-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Trap Beat Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Modern trap music</p>
-            </Link>
-            <Link
-              href="/generator/motivational-song-lyrics"
-              className="p-4 bg-card rounded-lg border border-border hover:border-primary hover:shadow-lg transition-all min-h-[88px]"
-            >
-              <h3 className="font-semibold mb-1">Motivational Song Lyrics</h3>
-              <p className="text-xs text-muted-foreground">Inspirational anthems</p>
-            </Link>
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-sm text-muted-foreground">
-              Explore 100+ more specialized generators by running the SEO generator script
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Genre Quick Links Section */}
-      <section className="container mx-auto px-4 py-12 border-t border-border/50">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-center mb-8">Generate Lyrics by Genre</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            <Link href="/genre/rnb">
+      {/* Popular Generators */}
+      <section className="container mx-auto px-4 py-16 bg-muted/50">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Generate Lyrics by Genre</h2>
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Explore our specialized AI generators for different music styles and occasions
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {[
+            { name: "R&B Lyrics", slug: "rnb" },
+            { name: "Rock Lyrics", slug: "rock" },
+            { name: "Pop Lyrics", slug: "pop" },
+            { name: "Rap Lyrics", slug: "rap" },
+            { name: "Country Lyrics", slug: "country" },
+            { name: "Jazz Lyrics", slug: "jazz" },
+            { name: "K-Pop Lyrics", slug: "k-pop" },
+            { name: "Folk Lyrics", slug: "folk" },
+            { name: "EDM Lyrics", slug: "edm" },
+            { name: "Metal Lyrics", slug: "metal" },
+            { name: "Blues Lyrics", slug: "blues" },
+            { name: "Indie Lyrics", slug: "indie" },
+            { name: "Love Song", slug: "love-song" },
+            { name: "Christmas Song", slug: "christmas-song" },
+            { name: "Birthday Song", slug: "birthday-song" },
+            { name: "Diss Track", slug: "diss-track" },
+          ].map((genre) => (
+            <Link key={genre.slug} href={`/genre/${genre.slug}`}>
               <Button
                 variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
+                className="w-full h-12 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors bg-transparent"
               >
-                R&B Lyrics
+                {genre.name}
               </Button>
             </Link>
-            <Link href="/genre/rock">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Rock Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/pop">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Pop Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/rap">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Rap Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/elementary-school-songs">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Elementary School Songs
-              </Button>
-            </Link>
-            <Link href="/genre/folk">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Folk Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/jazz">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Jazz Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/kpop">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                K-Pop Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/country">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Country Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/diss-track">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Diss Track Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/edm">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                EDM Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/reggae">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Reggae Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/blues">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Blues Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/metal">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Metal Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/indie">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Indie Lyrics
-              </Button>
-            </Link>
-            <Link href="/genre/love-song">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Love Songs
-              </Button>
-            </Link>
-            <Link href="/genre/christmas-song">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Christmas Songs
-              </Button>
-            </Link>
-            <Link href="/genre/birthday-song">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full hover:bg-primary hover:text-primary-foreground bg-transparent min-h-[44px]"
-              >
-                Birthday Songs
-              </Button>
-            </Link>
-          </div>
+          ))}
         </div>
       </section>
 
