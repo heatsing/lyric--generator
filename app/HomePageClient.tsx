@@ -45,8 +45,8 @@ export default function HomePageClient() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-balance">How It Works</h2>
           <p className="text-center text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto leading-relaxed">
-            Our AI-powered lyrics generator uses advanced language models to create original, creative lyrics tailored
-            to your specifications. Here's how to get started:
+            Lyrics Into Song helps you go from words to a playable demo fast. Follow these steps to turn your lyrics
+            into a full track:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
@@ -54,15 +54,15 @@ export default function HomePageClient() {
                 1
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Choose Your Musical Style</h3>
+                <h3 className="text-xl font-semibold mb-3">Add Your Lyrics</h3>
                 <p className="text-muted-foreground leading-relaxed mb-3">
-                  Select your preferred genre from our extensive library including Pop, Rock, Hip Hop, R&B, Country,
-                  Jazz, and many more. Each genre has its own unique characteristics and lyrical patterns.
+                  Paste your lyrics or generate a quick draft. The editor lets you refine lines before you render the
+                  song.
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Pick from 15+ popular music genres</li>
-                  <li>Choose a mood that matches your vision</li>
-                  <li>Select a theme to guide the content</li>
+                  <li>Start with your own lyrics or generate new ones</li>
+                  <li>Keep verse and chorus labels for clearer structure</li>
+                  <li>Iterate quickly with small edits</li>
                 </ul>
               </div>
             </div>
@@ -71,16 +71,15 @@ export default function HomePageClient() {
                 2
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Customize Your Song Details</h3>
+                <h3 className="text-xl font-semibold mb-3">Pick Style & Mood</h3>
                 <p className="text-muted-foreground leading-relaxed mb-3">
-                  Fine-tune your lyrics by adding specific topics, keywords, or phrases you want to include. Control the
-                  structure and length to match your needs.
+                  Choose the genre, mood, and theme to shape the vocals, arrangement, and tempo.
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Add optional keywords or topics</li>
-                  <li>Choose song length preference</li>
-                  <li>Select your preferred language</li>
-                  <li>All settings work together perfectly</li>
+                  <li>Choose from 15+ genres and tones</li>
+                  <li>Set the emotional mood of the performance</li>
+                  <li>Pick a theme to guide the arrangement</li>
+                  <li>Optional keywords fine-tune the vibe</li>
                 </ul>
               </div>
             </div>
@@ -89,16 +88,15 @@ export default function HomePageClient() {
                 3
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Generate & Export</h3>
+                <h3 className="text-xl font-semibold mb-3">Generate & Download</h3>
                 <p className="text-muted-foreground leading-relaxed mb-3">
-                  Click the generate button and watch as AI creates your unique lyrics in seconds. Edit, copy, or
-                  download the results.
+                  Render the song, preview it instantly, and download the audio when you love the result.
                 </p>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Instant AI-powered generation</li>
-                  <li>Edit lyrics directly in the output</li>
-                  <li>Copy to clipboard or download</li>
-                  <li>Regenerate unlimited times</li>
+                  <li>Convert lyrics into vocals + instrumentals</li>
+                  <li>Preview the track in-browser</li>
+                  <li>Download MP3 and lyric files</li>
+                  <li>Regenerate anytime for new ideas</li>
                 </ul>
               </div>
             </div>
@@ -109,10 +107,10 @@ export default function HomePageClient() {
               <div className="flex-1">
                 <h3 className="text-xl font-semibold mb-3">Pro Tips</h3>
                 <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2 leading-relaxed">
-                  <li>Be specific with keywords for better results</li>
-                  <li>Try different mood combinations</li>
-                  <li>Edit output to add personal touch</li>
-                  <li>Save your favorite settings</li>
+                  <li>Keep line lengths consistent for smoother vocals</li>
+                  <li>Try different moods to hear new delivery styles</li>
+                  <li>Use the editor to tweak one verse at a time</li>
+                  <li>Save favorite settings for faster demos</li>
                 </ul>
               </div>
             </div>
@@ -129,9 +127,9 @@ export default function HomePageClient() {
 
       {/* Popular Generators */}
       <section className="container mx-auto px-4 py-16 bg-muted/50">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Generate Lyrics by Genre</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Popular Styles for Lyrics to Song</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Explore our specialized AI generators for different music styles and occasions
+          Explore our most-requested genres to shape your song quickly
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {[

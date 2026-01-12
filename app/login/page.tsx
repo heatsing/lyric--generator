@@ -78,7 +78,7 @@ export default function LoginPage() {
           <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
             <Music className="w-7 h-7 text-primary-foreground" />
           </div>
-          <span className="text-2xl font-bold">AI Lyrics Generator</span>
+          <span className="text-2xl font-bold">Lyrics Into Song</span>
         </Link>
 
         {/* Login Card */}

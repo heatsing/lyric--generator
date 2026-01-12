@@ -108,7 +108,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
     // Show progress messages for better UX
     const progressMessages = [
       "Analyzing your preferences...",
-      "Finding the perfect rhyme scheme...",
+      "Finding the right flow...",
       "Crafting your verses...",
       "Polishing the chorus...",
       "Almost there...",
@@ -308,7 +308,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
               </svg>
             </div>
             <div>
-              <h2 style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">AI Lyrics Generator</h2>
+              <h2 style="font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 0;">Lyrics Into Song</h2>
               <p style="font-size: 14px; color: #666; margin: 0;">${genre} • ${mood} • ${theme}</p>
             </div>
           </div>
@@ -487,7 +487,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
             <div className="flex flex-col items-center justify-center h-full py-16">
               <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
               <p className="text-muted-foreground text-center font-medium">{generationProgress}</p>
-              <p className="text-sm text-muted-foreground/60 mt-2">This usually takes 3-5 seconds</p>
+                    <p className="text-sm text-muted-foreground/60 mt-2">This usually takes a few seconds</p>
             </div>
           ) : lyrics ? (
             <div className="space-y-4">
@@ -513,7 +513,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
                   ) : (
                     <>
                       <Music2 className="w-5 h-5 mr-2" />
-                      Convert Lyrics to Song
+                      Turn Lyrics Into a Song
                     </>
                   )}
                 </Button>

@@ -8,9 +8,9 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-semibold mb-4">AI Lyrics Generator</h3>
+            <h3 className="font-semibold mb-4">Lyrics Into Song</h3>
             <p className="text-sm text-muted-foreground">
-              Create professional song lyrics instantly with AI. Free, unlimited, and ready for commercial use.
+              Turn your lyrics into full songs with AI vocals and instrumentals in minutes.
             </p>
           </div>
 
@@ -19,7 +19,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Lyrics Generator
+                  Lyrics to Song
                 </Link>
               </li>
               <li>
@@ -91,9 +91,9 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AI Lyrics Generator. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Lyrics Into Song. All rights reserved.</p>
           <p className="mt-2">
-            All generated lyrics are copyright-free and yours to use for any purpose, including commercial projects.
+            Every song you create is royalty-free and ready for personal or commercial projects.
           </p>
         </div>
       </div>

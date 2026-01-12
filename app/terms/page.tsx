@@ -3,9 +3,8 @@ import { Footer } from "@/components/Footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | AI Lyrics Generator",
-  description:
-    "Terms of service for AI Lyrics Generator. Understand your rights and responsibilities when using our service.",
+  title: "Terms of Service | Lyrics Into Song",
+  description: "Terms of service for Lyrics Into Song. Understand your rights and responsibilities when using our service.",
 }
 
 export default function TermsPage() {
@@ -20,25 +19,25 @@ export default function TermsPage() {
 
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing and using AI Lyrics Generator ("the Service"), you accept and agree to be bound by these
-              Terms of Service. If you do not agree to these terms, please do not use the Service.
+              By accessing and using Lyrics Into Song ("the Service"), you accept and agree to be bound by these Terms
+              of Service. If you do not agree to these terms, please do not use the Service.
             </p>
 
             <h2>2. Description of Service</h2>
             <p>
-              AI Lyrics Generator provides an AI-powered tool for generating song lyrics based on user inputs. The
-              Service is provided free of charge for personal and commercial use.
+              Lyrics Into Song provides an AI-powered tool for turning lyrics into complete songs based on user inputs.
+              The Service is provided free of charge for personal and commercial use.
             </p>
 
             <h2>3. User Rights and Ownership</h2>
             <h3>3.1 Copyright Ownership</h3>
             <p>
-              <strong>You own all rights to the lyrics generated using our Service.</strong> We claim no ownership,
-              copyright, or intellectual property rights over generated content.
+              <strong>You own all rights to the lyrics and songs generated using our Service.</strong> We claim no
+              ownership, copyright, or intellectual property rights over generated content.
             </p>
 
             <h3>3.2 Commercial Use</h3>
-            <p>You are free to use generated lyrics for:</p>
+            <p>You are free to use generated lyrics and songs for:</p>
             <ul>
               <li>Personal creative projects</li>
               <li>Commercial music releases</li>
@@ -46,14 +45,14 @@ export default function TermsPage() {
               <li>Publishing and distribution</li>
               <li>Any other legal purpose</li>
             </ul>
-            <p>No attribution to AI Lyrics Generator is required, though it's appreciated.</p>
+            <p>No attribution to Lyrics Into Song is required, though it's appreciated.</p>
 
             <h2>4. User Responsibilities</h2>
             <h3>4.1 Acceptable Use</h3>
             <p>You agree NOT to:</p>
             <ul>
               <li>Generate content that is illegal, harmful, or violates others' rights</li>
-              <li>Create lyrics promoting hate speech, violence, or discrimination</li>
+              <li>Create lyrics or songs promoting hate speech, violence, or discrimination</li>
               <li>Abuse the Service through automated scraping or excessive requests</li>
               <li>Attempt to reverse engineer or copy our AI models</li>
               <li>Impersonate others or provide false information</li>
@@ -61,21 +60,21 @@ export default function TermsPage() {
 
             <h3>4.2 Content Responsibility</h3>
             <p>
-              You are solely responsible for how you use generated lyrics. We do not review, approve, or endorse
-              generated content. You must ensure your use complies with all applicable laws.
+              You are solely responsible for how you use generated lyrics and songs. We do not review, approve, or
+              endorse generated content. You must ensure your use complies with all applicable laws.
             </p>
 
             <h2>5. AI-Generated Content Disclaimer</h2>
             <h3>5.1 No Guarantee of Uniqueness</h3>
             <p>
-              While our AI strives to create original content, we cannot guarantee that generated lyrics are completely
-              unique or have never been created before. You should review and modify content as needed.
+              While our AI strives to create original content, we cannot guarantee that generated lyrics or songs are
+              completely unique or have never been created before. You should review and modify content as needed.
             </p>
 
             <h3>5.2 Quality and Accuracy</h3>
             <p>
-              AI-generated lyrics are provided "as is" without warranty. We do not guarantee grammatical perfection,
-              rhyme quality, or creative excellence. Results may vary based on inputs.
+              AI-generated content is provided "as is" without warranty. We do not guarantee vocal quality, mix
+              fidelity, or creative excellence. Results may vary based on inputs.
             </p>
 
             <h2>6. Service Availability</h2>
@@ -95,7 +94,7 @@ export default function TermsPage() {
             <ul>
               <li>The Service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind</li>
               <li>We are not liable for any direct, indirect, incidental, or consequential damages</li>
-              <li>We are not responsible for how you use generated lyrics or any resulting disputes</li>
+              <li>We are not responsible for how you use generated lyrics or songs or any resulting disputes</li>
               <li>Our total liability shall not exceed $100 USD</li>
             </ul>
 
@@ -118,8 +117,8 @@ export default function TermsPage() {
 
             <h2>10. Indemnification</h2>
             <p>
-              You agree to indemnify and hold harmless AI Lyrics Generator, its operators, and affiliates from any
-              claims, damages, or expenses arising from your use of the Service or violation of these terms.
+              You agree to indemnify and hold harmless Lyrics Into Song, its operators, and affiliates from any claims,
+              damages, or expenses arising from your use of the Service or violation of these terms.
             </p>
 
             <h2>11. Governing Law</h2>
@@ -130,7 +129,7 @@ export default function TermsPage() {
 
             <h2>12. Contact Information</h2>
             <p>For questions about these Terms of Service, please contact:</p>
-            <p className="font-mono bg-muted p-4 rounded">support@ailyricsgenerator.com</p>
+            <p className="font-mono bg-muted p-4 rounded">support@lyricsintosong.com</p>
 
             <h2>13. Severability</h2>
             <p>
@@ -139,8 +138,9 @@ export default function TermsPage() {
             </p>
 
             <p className="mt-8 p-4 bg-primary/10 rounded-lg">
-              <strong>Summary:</strong> You own the lyrics you generate. Use them however you want. Don't create illegal
-              content. We're not responsible for what you do with AI-generated lyrics. Be cool, and we'll be cool. 🎵
+              <strong>Summary:</strong> You own the lyrics and songs you generate. Use them however you want. Don't
+              create illegal content. We're not responsible for what you do with AI-generated content. Be cool, and
+              we'll be cool. 🎵
             </p>
           </div>
         </div>

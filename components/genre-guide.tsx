@@ -6,8 +6,8 @@ export default function GenreGuide() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Understanding Song Lyric Styles</h2>
         <p className="text-center text-muted-foreground mb-12 text-pretty leading-relaxed">
-          Different music genres require unique approaches to songwriting. Learn the key characteristics of popular
-          styles.
+          Different music genres require unique approaches to songwriting. Use these tips to shape lyrics before
+          converting them into full songs.
         </p>
 
         <div className="space-y-8">
@@ -18,8 +18,7 @@ export default function GenreGuide() {
               relationships, and personal experiences. The structure usually follows a
               verse-chorus-verse-chorus-bridge-chorus pattern, with the chorus being the most memorable part. Pop
               songwriting emphasizes simplicity and emotional directness, making it easy for listeners to sing along.
-              <strong> Use our lyric generator</strong> to create infectious pop hooks that stick in your audience's
-              mind.
+              <strong> Use Lyrics Into Song</strong> to build pop hooks and instantly hear them as a demo.
             </p>
           </div>
 
@@ -30,8 +29,8 @@ export default function GenreGuide() {
               Hip hop songwriting often includes storytelling, social commentary, and personal narratives delivered with
               confidence and flow. The structure focuses on verses with 16 bars, hooks, and sometimes bridges, with
               emphasis on internal rhymes and metaphors.
-              <strong> Our AI rap generator</strong> understands authentic hip hop culture and can create bars with
-              clever punchlines and seamless flow.
+              <strong> Lyrics Into Song</strong> understands authentic hip hop culture and can create bars with clever
+              punchlines and seamless flow.
             </p>
           </div>
 
@@ -42,17 +41,16 @@ export default function GenreGuide() {
               personal experiences, traditional tales, or social issues, delivered with poetic language and vivid
               imagery. The structure is flexible, sometimes following traditional ballad forms or more free-flowing
               narrative patterns. Folk music values lyrical substance over commercial appeal.
-              <strong> Generate folk lyrics</strong> that capture timeless human experiences with our specialized AI
-              tool.
+              <strong> Generate folk lyrics</strong> and render them into a warm acoustic demo with our AI tool.
             </p>
           </div>
         </div>
 
         <div className="mt-8 text-center">
           <p className="text-muted-foreground leading-relaxed">
-            Ready to create your own professional lyrics? Our AI-powered generator supports 15+ genres including rock,
-            country, R&B, EDM, and more. Whether you're writing your first song or you're a seasoned songwriter looking
-            for inspiration, our tool delivers authentic, creative lyrics tailored to your exact specifications.
+            Ready to create your own professional demo? Lyrics Into Song supports 15+ genres including rock, country,
+            R&B, EDM, and more. Whether you're writing your first song or you're a seasoned songwriter looking for
+            inspiration, our tool delivers lyrics and vocals tailored to your exact specifications.
           </p>
         </div>
       </div>

@@ -155,17 +155,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!data) {
     return {
-      title: "Genre Not Found | AI Lyrics Generator",
+      title: "Genre Not Found | Lyrics Into Song",
       description: "The requested genre page could not be found. Return to homepage to explore all available genres.",
     }
   }
 
   return {
-    title: `${data.displayName} | Free AI-Powered Song Lyrics | Create ${data.name} Music`,
+    title: `${data.displayName} | Lyrics Into Song`,
     description: data.description,
-    keywords: [...data.keywords, "AI lyrics generator", "free lyrics", "song writing", "music creation"].join(", "),
+    keywords: [...data.keywords, "lyrics to song", "AI song generator", "song writing", "music creation"].join(", "),
     openGraph: {
-      title: `${data.displayName} - AI Lyrics Generator`,
+      title: `${data.displayName} - Lyrics Into Song`,
       description: data.description,
       type: "website",
     },
@@ -203,11 +203,11 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <Music className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-balance">AI Lyrics Generator</span>
+            <span className="text-xl font-bold text-balance">Lyrics Into Song</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Lyric Generator
+              Lyrics to Song
             </Link>
             <Link
               href="/poem-generator"
@@ -233,7 +233,7 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
             <Sparkles className="w-4 h-4" />
-            <span>AI-Powered {data.name} Lyrics</span>
+            <span>AI-Powered {data.name} Songs</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance leading-tight">
             {data.displayName}
@@ -258,7 +258,7 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
       <section id="features" className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">
-            Why Use Our {data.name} Lyrics Generator?
+            Why Use Lyrics Into Song for {data.name}?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card rounded-xl p-6 border border-border">
@@ -406,7 +406,7 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
       <footer className="border-t border-border/50 mt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} AI Lyrics Generator. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Lyrics Into Song. All rights reserved.</p>
           </div>
         </div>
       </footer>
