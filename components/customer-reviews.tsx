@@ -83,7 +83,7 @@ export function CustomerReviews() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Loved by Creators Worldwide</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">User Reviews on Lyric Generator AI</h2>
         <p className="text-muted-foreground text-pretty max-w-2xl mx-auto">
           Join thousands of musicians, songwriters, and content creators using our AI tools every day
         </p>
