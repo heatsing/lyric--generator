@@ -104,7 +104,8 @@ const seoPages = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lyricgenerator.cc"
+  const baseUrl = "https://lyricgenerator.cc"
+  const currentDate = new Date().toISOString()
 
   const genres = [
     "rnb",
@@ -127,52 +128,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "birthday-song",
   ]
 
-  const genrePages = genres.map((slug) => ({
+  const genrePages: MetadataRoute.Sitemap = genres.map((slug) => ({
     url: `${baseUrl}/genre/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
     priority: 0.8,
   }))
 
-  const dynamicGeneratorPages = seoPages.map((page) => ({
+  const dynamicGeneratorPages: MetadataRoute.Sitemap = seoPages.map((page) => ({
     url: `${baseUrl}/generator/${page.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
     priority: 0.85,
   }))
 
-  return [
+  const sitemap: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "daily" as const,
+      lastModified: currentDate,
+      changeFrequency: "daily",
       priority: 1,
     },
     {
       url: `${baseUrl}/poem-generator`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/story-generator`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
       priority: 0.6,
     },
     ...genrePages,
     ...dynamicGeneratorPages,
   ]
+
+  return sitemap
 }
