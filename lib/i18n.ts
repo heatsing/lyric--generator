@@ -21,10 +21,10 @@ export const translations = {
     },
     hero: {
       badge: "Powered by Advanced AI",
-      title: "Create Original Song Lyrics",
-      titleHighlight: "in Seconds",
+      title: "Free AI Lyrics Generator Online",
+      titleHighlight: "",
       description:
-        "Transform your ideas into beautiful lyrics with AI. Perfect for songwriters, musicians, and anyone looking to spark creativity.",
+        "A free AI song lyrics generator that helps songwriters and musicians create original, professional-quality lyrics quickly and effortlessly.",
     },
     generator: {
       customize: "Customize Your Lyrics",
@@ -66,9 +66,9 @@ export const translations = {
     },
     hero: {
       badge: "由先进AI驱动",
-      title: "创作原创歌词",
-      titleHighlight: "只需几秒",
-      description: "用AI将您的想法转化为美妙的歌词。完美适合词曲作者、音乐人和任何想要激发创造力的人。",
+      title: "免费在线AI歌词生成器",
+      titleHighlight: "",
+      description: "免费的AI歌词生成器，帮助词曲作者和音乐人快速轻松地创作原创、专业品质的歌词。",
     },
     generator: {
       customize: "自定义您的歌词",
@@ -110,10 +110,10 @@ export const translations = {
     },
     hero: {
       badge: "Impulsado por IA Avanzada",
-      title: "Crea Letras Originales",
-      titleHighlight: "en Segundos",
+      title: "Generador de Letras Originales Gratis en Línea",
+      titleHighlight: "",
       description:
-        "Transforma tus ideas en hermosas letras con IA. Perfecto para compositores, músicos y cualquiera que busque despertar la creatividad.",
+        "Un generador gratuito de letras de canciones con IA que ayuda a compositores y músicos a crear letras originales de calidad profesional de forma rápida y sin esfuerzo.",
     },
     generator: {
       customize: "Personaliza Tus Letras",
@@ -126,7 +126,7 @@ export const translations = {
       length: "Duración de la Canción",
       language: "Idioma",
       generate: "Generar Letras",
-      generating: "Generando...",
+      generating: "Génération...",
       yourLyrics: "Tus Letras Generadas",
       createPrompt: "Completa el formulario y haz clic en Generar Letras para crear tu canción",
       creating: "Creando tus letras únicas...",
@@ -156,10 +156,10 @@ export const translations = {
     },
     hero: {
       badge: "Propulsé par IA Avancée",
-      title: "Créez des Paroles Originales",
-      titleHighlight: "en Quelques Secondes",
+      title: "Générateur Gratuit de Paroles Originales en Ligne",
+      titleHighlight: "",
       description:
-        "Transformez vos idées en belles paroles avec l'IA. Parfait pour les paroliers, les musiciens et tous ceux qui cherchent à stimuler leur créativité.",
+        "Un générateur gratuit de paroles de chansons IA qui aide les paroliers et musiciens à créer des paroles originales de qualité professionnelle rapidement et sans effort.",
     },
     generator: {
       customize: "Personnalisez Vos Paroles",
@@ -202,10 +202,10 @@ export const translations = {
     },
     hero: {
       badge: "Angetrieben von fortschrittlicher KI",
-      title: "Erstellen Sie Originale Songtexte",
-      titleHighlight: "in Sekunden",
+      title: "Kostenloser Online-Songtext-Generator",
+      titleHighlight: "",
       description:
-        "Verwandeln Sie Ihre Ideen mit KI in wunderschöne Texte. Perfekt für Songwriter, Musiker und alle, die Kreativität wecken möchten.",
+        "Ein kostenloser KI-Songtext-Generator, der Songwritern und Musikern hilft, originelle, professionelle Songtexte schnell und mühelos zu erstellen.",
     },
     generator: {
       customize: "Passen Sie Ihre Songtexte An",
@@ -247,10 +247,10 @@ export const translations = {
     },
     hero: {
       badge: "高度なAIを搭載",
-      title: "オリジナルの歌詞を作成",
-      titleHighlight: "数秒で",
+      title: "無料のオンラインAI歌詞生成器",
+      titleHighlight: "",
       description:
-        "AIであなたのアイデアを美しい歌詞に変換します。ソングライター、ミュージシャン、創造性を刺激したい方に最適です。",
+        "ソングライターやミュージシャンが、オリジナルでプロ品質の歌詞を迅速かつ簡単に作成できる無料のAI歌詞生成器です。",
     },
     generator: {
       customize: "歌詞をカスタマイズ",
@@ -271,7 +271,7 @@ export const translations = {
     features: {
       title: "私たちの歌詞ジェネレーターを選ぶ理由は？",
       fast: "超高速",
-      fastDesc: "数秒で完全な歌詞を生成します。待ち時間なし、手間なし。",
+      fastDesc: "数秒で完全な歌詞を生成します。待ち時間なし、无忧无虑。",
       customizable: "高度にカスタマイズ可能",
       customizableDesc: "ジャンル、ムード、テーマ、言語などを制御して、あなたのビジョンに合わせます。",
       original: "オリジナル＆クリエイティブ",
@@ -292,10 +292,10 @@ export const translations = {
     },
     hero: {
       badge: "고급 AI로 구동",
-      title: "오리지널 노래 가사 만들기",
-      titleHighlight: "몇 초 만에",
+      title: "무료 온라인 AI 가사 생성기",
+      titleHighlight: "",
       description:
-        "AI로 아이디어를 아름다운 가사로 변환하세요. 작곡가, 음악가 및 창의력을 불러일으키고자 하는 모든 사람에게 완벽합니다.",
+        "작곡가와 음악가가 독창적이고 전문적인 품질의 가사를 빠르고 쉽게 만들 수 있도록 돕는 무료 AI 가사 생성기입니다.",
     },
     generator: {
       customize: "가사 맞춤 설정",

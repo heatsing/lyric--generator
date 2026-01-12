@@ -1,10 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import { Music, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
+import { ThemeToggle } from "@/components/ThemeToggle"
 import { useState } from "react"
+import { Logo, LogoCompact } from "@/components/Logo"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -12,11 +14,15 @@ export function Header() {
   return (
     <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/95">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-            <Music className="w-6 h-6 text-primary-foreground" />
+        <Link href="/" className="hover:opacity-90 transition-opacity">
+          {/* Desktop logo */}
+          <div className="hidden sm:block">
+            <Logo />
           </div>
-          <span className="text-xl font-bold text-balance">AI Lyrics Generator</span>
+          {/* Mobile logo - more compact */}
+          <div className="block sm:hidden">
+            <LogoCompact />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -37,6 +43,7 @@ export function Header() {
             Short Story Generator
           </Link>
           <LanguageSwitcher />
+          <ThemeToggle />
           <Link href="/login">
             <Button size="sm">Login</Button>
           </Link>
@@ -79,6 +86,9 @@ export function Header() {
             </Link>
             <div className="py-2">
               <LanguageSwitcher />
+            </div>
+            <div className="py-2">
+              <ThemeToggle />
             </div>
             <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
               <Button size="lg" className="w-full min-h-[44px]">

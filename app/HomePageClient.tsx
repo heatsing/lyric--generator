@@ -9,6 +9,7 @@ import { FAQ } from "@/components/faq"
 import { TrustBadges } from "@/components/TrustBadges"
 import { SocialProof } from "@/components/SocialProof"
 import { CTASection } from "@/components/CTASection"
+import { GoogleOneTap } from "@/components/GoogleOneTap"
 import LyricsGenerator from "@/components/lyrics-generator"
 import GenreGuide from "@/components/genre-guide"
 import Link from "next/link"
@@ -17,6 +18,8 @@ import { Button } from "@/components/ui/button"
 export default function HomePageClient() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
+      <GoogleOneTap />
+
       <Header />
 
       <HeroSection />
