@@ -1,5 +1,8 @@
+"use client"
+
 import { Star } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import { useEffect, useRef, useState } from "react"
 
 const reviews = [
   {
@@ -16,7 +19,7 @@ const reviews = [
     avatar: "MC",
     rating: 5,
     review:
-      "The music generator creates professional-quality beats that I can use in my productions. It's like having a studio assistant available 24/7.",
+      "The generator creates professional-quality lyrics that I can use in my productions. It's like having a songwriting assistant available 24/7.",
   },
   {
     name: "Emily Rodriguez",
@@ -24,7 +27,7 @@ const reviews = [
     avatar: "ER",
     rating: 5,
     review:
-      "I use the song generator for my YouTube videos and podcasts. The quality is incredible and it saves me so much time and money on music licensing!",
+      "I use the lyrics generator for my YouTube videos and podcasts. The quality is incredible and it saves me so much time on music creation!",
   },
   {
     name: "David Kim",
@@ -48,11 +51,35 @@ const reviews = [
     avatar: "JW",
     rating: 5,
     review:
-      "The complete song generator is mind-blowing. I've created several tracks that I'm actually releasing. The vocal quality is surprisingly realistic!",
+      "The lyrics generator is mind-blowing. I've created several tracks with these lyrics that I'm actually releasing. The quality is surprisingly high!",
   },
 ]
 
 export function CustomerReviews() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  useEffect(() => {
+    if (isAutoPlaying) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 3) % reviews.length)
+      }, 5000)
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [isAutoPlaying])
+
+  const visibleReviews = [
+    reviews[currentIndex % reviews.length],
+    reviews[(currentIndex + 1) % reviews.length],
+    reviews[(currentIndex + 2) % reviews.length],
+  ]
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
@@ -62,28 +89,54 @@ export function CustomerReviews() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reviews.map((review, index) => (
-          <Card key={index} className="p-6 border border-border">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-semibold text-primary">{review.avatar}</span>
+      <div
+        className="relative overflow-hidden"
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {visibleReviews.map((review, index) => (
+            <Card
+              key={`${currentIndex}-${index}`}
+              className="p-6 border border-border animate-in fade-in-0 slide-in-from-right-5 duration-500"
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-semibold text-primary">{review.avatar}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-sm">{review.name}</h4>
+                  <p className="text-xs text-muted-foreground">{review.role}</p>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-sm">{review.name}</h4>
-                <p className="text-xs text-muted-foreground">{review.role}</p>
+
+              <div className="flex gap-1 mb-3">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                ))}
               </div>
-            </div>
 
-            <div className="flex gap-1 mb-3">
-              {Array.from({ length: review.rating }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-              ))}
-            </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{review.review}</p>
+            </Card>
+          ))}
+        </div>
 
-            <p className="text-sm text-muted-foreground leading-relaxed">{review.review}</p>
-          </Card>
-        ))}
+        {/* Carousel indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {[0, 1].map((page) => (
+            <button
+              key={page}
+              onClick={() => {
+                setCurrentIndex(page * 3)
+                setIsAutoPlaying(false)
+              }}
+              className={`h-2 rounded-full transition-all ${
+                Math.floor(currentIndex / 3) === page ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30"
+              }`}
+              aria-label={`Go to page ${page + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="mt-12 text-center">

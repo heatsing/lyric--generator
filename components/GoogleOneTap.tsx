@@ -115,3 +115,5 @@ declare global {
     }
   }
 }
+
+export default GoogleOneTap

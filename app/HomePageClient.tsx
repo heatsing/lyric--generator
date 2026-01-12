@@ -8,12 +8,11 @@ import { CustomerReviews } from "@/components/customer-reviews"
 import { FAQ } from "@/components/faq"
 import { TrustBadges } from "@/components/TrustBadges"
 import { SocialProof } from "@/components/SocialProof"
-import { CTASection } from "@/components/CTASection"
-import { GoogleOneTap } from "@/components/GoogleOneTap"
 import LyricsGenerator from "@/components/lyrics-generator"
 import GenreGuide from "@/components/genre-guide"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import GoogleOneTap from "@/components/GoogleOneTap"
 
 export default function HomePageClient() {
   return (
@@ -106,8 +105,8 @@ export default function HomePageClient() {
               </div>
             </div>
             <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
-                💡
+              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
+                4
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-semibold mb-3">Pro Tips</h3>
@@ -127,8 +126,6 @@ export default function HomePageClient() {
       <section id="faq" className="container mx-auto px-4 py-16">
         <FAQ />
       </section>
-
-      <CTASection />
 
       {/* Popular Generators */}
       <section className="container mx-auto px-4 py-16 bg-muted/50">
