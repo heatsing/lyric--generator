@@ -15,11 +15,20 @@ export function GoogleOneTap({ onSuccess, onError }: GoogleOneTapProps) {
 
     const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
-    if (!clientId) {
-      console.error(
-        "[v0] Google Client ID not configured. Please add NEXT_PUBLIC_GOOGLE_CLIENT_ID to your environment variables.\n" +
-          "Expected format: 404702389910-xxxx.apps.googleusercontent.com",
+    // Don't initialize if client ID is not configured or is the placeholder
+    if (!clientId || clientId.startsWith("NEXT_PUBLIC_") || clientId === "your-client-id") {
+      console.log(
+        "[v0] Google One Tap: Client ID not configured. Skipping initialization.\n" +
+          "To enable Google One Tap:\n" +
+          "1. Add NEXT_PUBLIC_GOOGLE_CLIENT_ID=404702389910-ea05iba1famkjpq3pspcs68dgpo45jgi.apps.googleusercontent.com to Vercel environment variables\n" +
+          "2. Add https://lyricgenerator.cc to authorized JavaScript origins in Google Cloud Console\n" +
+          "3. Redeploy the application",
       )
+      return
+    }
+
+    if (!clientId.includes(".apps.googleusercontent.com")) {
+      console.error("[v0] Google One Tap: Invalid client ID format. Expected format: xxxx.apps.googleusercontent.com")
       return
     }
 
@@ -66,14 +75,6 @@ export function GoogleOneTap({ onSuccess, onError }: GoogleOneTapProps) {
             if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
               const reason = notification.getNotDisplayedReason()
               console.log("[v0] One Tap not displayed:", reason)
-              if (reason === "invalid_client") {
-                console.error(
-                  "[v0] Invalid Client ID. Please verify:\n" +
-                    "1. NEXT_PUBLIC_GOOGLE_CLIENT_ID is set correctly in Vercel\n" +
-                    "2. The Client ID matches your Google Cloud Console OAuth client\n" +
-                    "3. https://lyricgenerator.cc is added to authorized JavaScript origins",
-                )
-              }
             }
           })
 
