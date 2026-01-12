@@ -1,61 +1,61 @@
 import HomePageClient from "./HomePageClient"
 import type { Metadata } from "next"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lyricgenerator.cc"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://lyricsintosong.com"
 
 export const metadata: Metadata = {
-  title: "Free AI Lyrics Generator - Create Original Song Lyrics Instantly | Professional AI Songwriting Tool 2026",
+  title: "Lyrics Into Song - Turn Lyrics Into Full Songs Instantly | AI Vocal & Music Generator",
   description:
-    "Generate unique, professional song lyrics instantly with our advanced AI lyrics generator. Free tool for songwriters, musicians & content creators. Create lyrics for 15+ genres including pop, rock, rap, R&B, country & more. No sign-up required. Start creating your next hit now!",
+    "Turn your lyrics into complete songs with AI vocals and instrumentals. Choose a genre, set the mood, and render a studio-ready demo in minutes. No sign-up required.",
   keywords: [
     // Primary keywords
-    "ai lyrics generator",
-    "song lyrics generator",
-    "free lyrics maker",
-    "ai songwriting tool",
-    "lyrics creator online",
+    "lyrics to song",
+    "lyrics into song",
+    "ai song generator",
+    "ai vocals generator",
+    "lyrics to music",
     // Long-tail keywords
-    "generate song lyrics free",
-    "ai powered lyrics generator",
-    "automatic lyrics writer",
-    "create song lyrics online",
-    "professional lyrics generator",
+    "turn lyrics into a song",
+    "lyrics to song ai free",
+    "convert lyrics to music",
+    "generate ai vocals",
+    "create song from lyrics online",
     // Genre-specific
-    "rap lyrics generator",
-    "pop lyrics maker",
-    "rock lyrics creator",
-    "country song lyrics generator",
-    "r&b lyrics writer",
+    "pop lyrics to song",
+    "rap lyrics to song",
+    "rock lyrics to song",
+    "country lyrics to song",
+    "r&b lyrics to song",
     // Use case keywords
-    "songwriting software free",
-    "lyric writing tool",
-    "music lyrics generator",
-    "song lyrics creator for musicians",
+    "song demo generator",
+    "ai music demo",
+    "song creator for musicians",
+    "ai music rendering",
     // 2026 keywords
-    "ai music writing 2026",
-    "best lyrics generator 2026",
+    "ai song generator 2026",
+    "best lyrics to song 2026",
   ].join(", "),
   openGraph: {
-    title: "Free AI Lyrics Generator - Create Original Songs Instantly 2026",
+    title: "Lyrics Into Song - Turn Lyrics Into Songs Instantly",
     description:
-      "Generate professional song lyrics in seconds with advanced AI. Free tool for all music genres. Join 500K+ songwriters creating hits daily!",
+      "Turn your lyrics into full songs with AI vocals and instrumentals. Choose a style, render a demo, and share it fast.",
     type: "website",
     url: siteUrl,
-    siteName: "AI Lyrics Generator",
+    siteName: "Lyrics Into Song",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "AI Lyrics Generator - Create Original Song Lyrics Instantly",
+        alt: "Lyrics Into Song - Turn Lyrics Into Full Songs Instantly",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free AI Lyrics Generator - Create Professional Songs",
-    description: "Generate professional song lyrics in seconds with AI. 500K+ users trust us.",
+    title: "Lyrics Into Song - AI Vocal & Music Generator",
+    description: "Turn lyrics into full songs with AI vocals, instrumentals, and fast rendering.",
     images: [`${siteUrl}/og-image.png`],
   },
   alternates: {
@@ -98,11 +98,11 @@ export default function HomePage() {
               {
                 "@type": "WebApplication",
                 "@id": `${siteUrl}/#webapp`,
-                name: "AI Lyrics Generator",
-                alternateName: "Free Song Lyrics Maker",
+                name: "Lyrics Into Song",
+                alternateName: "Lyrics to Song AI",
                 url: siteUrl,
                 description:
-                  "Professional AI-powered tool to generate original song lyrics for any genre. Create high-quality lyrics for pop, rock, rap, country, R&B and 15+ genres instantly. Used by 500,000+ songwriters worldwide.",
+                  "AI-powered tool to turn lyrics into complete songs with vocals and instrumentals. Render high-quality demos for pop, rock, rap, country, R&B, and more.",
                 applicationCategory: "MultimediaApplication",
                 operatingSystem: "Any",
                 browserRequirements: "Requires JavaScript",
@@ -113,15 +113,15 @@ export default function HomePage() {
                   availability: "https://schema.org/InStock",
                 },
                 featureList: [
-                  "AI-powered lyrics generation",
+                  "Lyrics to song conversion",
+                  "AI vocals and instrumentals",
                   "15+ music genres supported",
                   "Customizable mood and theme",
-                  "Multi-language support (20+ languages)",
-                  "Instant generation in seconds",
-                  "Download and copy lyrics",
+                  "Multi-language support",
+                  "Fast rendering in minutes",
+                  "Download MP3 and lyric files",
                   "No registration required",
-                  "Completely free forever",
-                  "Professional song structure",
+                  "Royalty-free usage",
                   "Unlimited generations",
                 ],
                 screenshot: `${siteUrl}/screenshot.png`,
@@ -134,13 +134,13 @@ export default function HomePage() {
                 },
                 author: {
                   "@type": "Organization",
-                  name: "AI Lyrics Generator",
+                  name: "Lyrics Into Song",
                 },
               },
               {
                 "@type": "Organization",
                 "@id": `${siteUrl}/#organization`,
-                name: "AI Lyrics Generator",
+                name: "Lyrics Into Song",
                 url: siteUrl,
                 logo: {
                   "@type": "ImageObject",
@@ -149,14 +149,14 @@ export default function HomePage() {
                   height: 512,
                 },
                 description:
-                  "Leading AI-powered lyrics generation platform trusted by musicians and songwriters worldwide",
+                  "Leading AI-powered lyrics-to-song platform trusted by musicians and creators worldwide",
                 sameAs: [],
               },
               {
                 "@type": "WebSite",
                 "@id": `${siteUrl}/#website`,
                 url: siteUrl,
-                name: "AI Lyrics Generator",
+                name: "Lyrics Into Song",
                 inLanguage: "en-US",
                 publisher: {
                   "@id": `${siteUrl}/#organization`,
@@ -172,7 +172,7 @@ export default function HomePage() {
               },
               {
                 "@type": "SoftwareApplication",
-                name: "AI Lyrics Generator",
+                name: "Lyrics Into Song",
                 operatingSystem: "Web Browser",
                 applicationCategory: "MusicApplication",
                 offers: {
@@ -189,11 +189,11 @@ export default function HomePage() {
               {
                 "@type": "CreativeWork",
                 "@id": `${siteUrl}/#creativework`,
-                name: "Song Lyrics",
-                description: "Original AI-generated song lyrics across multiple genres and languages",
+                name: "AI-Generated Songs",
+                description: "AI-generated songs with vocals and instrumentals across multiple genres",
                 creator: {
                   "@type": "Organization",
-                  name: "AI Lyrics Generator",
+                  name: "Lyrics Into Song",
                 },
                 genre: ["Pop", "Rock", "Rap", "R&B", "Country", "Jazz", "EDM", "K-Pop", "Folk", "Metal"],
               },

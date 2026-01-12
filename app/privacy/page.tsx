@@ -3,8 +3,8 @@ import { Footer } from "@/components/Footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | AI Lyrics Generator",
-  description: "Privacy policy for AI Lyrics Generator. Learn how we protect your data and respect your privacy.",
+  title: "Privacy Policy | Lyrics Into Song",
+  description: "Privacy policy for Lyrics Into Song. Learn how we protect your data and respect your privacy.",
 }
 
 export default function PrivacyPage() {
@@ -19,15 +19,15 @@ export default function PrivacyPage() {
 
             <h2>Introduction</h2>
             <p>
-              Welcome to AI Lyrics Generator. We respect your privacy and are committed to protecting your personal
-              data. This privacy policy explains how we handle your information when you use our service.
+              Welcome to Lyrics Into Song. We respect your privacy and are committed to protecting your personal data.
+              This privacy policy explains how we handle your information when you use our service.
             </p>
 
             <h2>Data We Collect</h2>
             <h3>Information You Provide</h3>
             <ul>
               <li>
-                <strong>Lyrics Generation Inputs</strong>: Genre, mood, theme, and topic selections you make
+                <strong>Lyrics & Song Inputs</strong>: Genre, mood, theme, and topic selections you make
               </li>
               <li>
                 <strong>Optional Information</strong>: Email address if you choose to subscribe to updates
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
             <h2>How We Use Your Data</h2>
             <p>We use the collected information to:</p>
             <ul>
-              <li>Provide and improve our lyrics generation service</li>
+              <li>Provide and improve our lyrics-to-song service</li>
               <li>Understand usage patterns to optimize user experience</li>
               <li>Prevent abuse and ensure service security</li>
               <li>Send optional updates if you subscribed (you can unsubscribe anytime)</li>
@@ -58,8 +58,8 @@ export default function PrivacyPage() {
 
             <h2>Data Storage and Security</h2>
             <p>
-              <strong>We do NOT store your generated lyrics.</strong> All lyrics generation happens in real-time and is
-              not saved to our servers. Your creative work belongs to you and only you.
+              <strong>We do NOT store your generated lyrics or songs.</strong> All generation happens in real-time and
+              is not saved to our servers. Your creative work belongs to you and only you.
             </p>
             <p>
               We use industry-standard security measures to protect any data we do collect. Our analytics are
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
             <p>We use the following third-party services:</p>
             <ul>
               <li>
-                <strong>DeepSeek API</strong>: For AI lyrics generation (input data is processed but not stored)
+                <strong>DeepSeek API</strong>: For AI generation (input data is processed but not stored)
               </li>
               <li>
                 <strong>Umami Analytics</strong>: Privacy-focused analytics (no cookies, GDPR compliant)
@@ -92,8 +92,8 @@ export default function PrivacyPage() {
 
             <h2>Copyright and Ownership</h2>
             <p>
-              <strong>All generated lyrics are yours.</strong> You own the copyright to any lyrics created using our
-              tool. You are free to use them for personal or commercial purposes without attribution.
+              <strong>All generated lyrics and songs are yours.</strong> You own the copyright to any content created
+              using our tool. You are free to use it for personal or commercial purposes without attribution.
             </p>
 
             <h2>Children's Privacy</h2>
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
             <p>
               If you have questions about this privacy policy or wish to exercise your rights, please contact us at:
             </p>
-            <p className="font-mono bg-muted p-4 rounded">support@ailyricsgenerator.com</p>
+            <p className="font-mono bg-muted p-4 rounded">support@lyricsintosong.com</p>
           </div>
         </div>
       </div>

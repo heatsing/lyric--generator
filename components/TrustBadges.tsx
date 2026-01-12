@@ -4,10 +4,10 @@ import { Check, Shield, Zap, Globe, Star } from "lucide-react"
 
 export function TrustBadges() {
   const badges = [
-    { icon: Zap, text: "Instant Results", color: "text-yellow-600" },
-    { icon: Shield, text: "100% Free", color: "text-blue-600" },
-    { icon: Globe, text: "20+ Languages", color: "text-green-600" },
-    { icon: Star, text: "AI-Powered", color: "text-purple-600" },
+    { icon: Zap, text: "Fast Song Render", color: "text-yellow-600" },
+    { icon: Shield, text: "Royalty-Free", color: "text-blue-600" },
+    { icon: Globe, text: "Multi-Language", color: "text-green-600" },
+    { icon: Star, text: "AI Vocals + Music", color: "text-purple-600" },
     { icon: Check, text: "No Sign-up", color: "text-pink-600" },
   ]
 

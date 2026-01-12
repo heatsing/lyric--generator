@@ -4,9 +4,9 @@ import { Users, TrendingUp, Music, Globe2 } from "lucide-react"
 
 export function SocialProof() {
   const stats = [
-    { icon: Users, value: "500K+", label: "Active Users", color: "text-blue-600" },
-    { icon: Music, value: "2M+", label: "Lyrics Generated", color: "text-purple-600" },
-    { icon: Globe2, value: "150+", label: "Countries", color: "text-green-600" },
+    { icon: Users, value: "300K+", label: "Creators Onboard", color: "text-blue-600" },
+    { icon: Music, value: "1.2M+", label: "Songs Rendered", color: "text-purple-600" },
+    { icon: Globe2, value: "120+", label: "Countries", color: "text-green-600" },
     { icon: TrendingUp, value: "4.8/5", label: "User Rating", color: "text-yellow-600" },
   ]
 

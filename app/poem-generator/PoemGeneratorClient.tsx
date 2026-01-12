@@ -20,7 +20,7 @@ export default function PoemGeneratorClient() {
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Lyric Generator
+              Lyrics to Song
             </Link>
             <Link href="/poem-generator" className="text-sm font-medium text-foreground transition-colors">
               Poem Generator

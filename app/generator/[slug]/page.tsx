@@ -66,22 +66,21 @@ export default async function GeneratorPage({
   }
 
   const genreDescriptions: Record<string, string> = {
-    Pop: "Pop music is characterized by catchy melodies, simple chord progressions, and relatable lyrics. Our AI generator creates pop lyrics that resonate with mainstream audiences.",
-    Rap: "Rap lyrics focus on rhythm, wordplay, and storytelling. Our generator helps you craft hard-hitting bars with clever metaphors and punchlines.",
-    Rock: "Rock music embodies rebellion, energy, and raw emotion. Generate powerful rock lyrics with strong imagery and anthemic choruses.",
+    Pop: "Pop music is characterized by catchy melodies, simple chord progressions, and relatable lyrics. Our AI helps you craft pop lyrics and render a full demo.",
+    Rap: "Rap lyrics focus on rhythm, wordplay, and storytelling. Craft hard-hitting bars and convert them into a track with vocals.",
+    Rock: "Rock music embodies rebellion, energy, and raw emotion. Generate powerful rock lyrics and hear them in a full demo.",
     "R&B":
-      "R&B combines soulful vocals with smooth grooves. Create romantic and emotionally rich lyrics that capture the essence of contemporary R&B.",
-    EDM: "EDM lyrics are energetic and uplifting, perfect for festival anthems. Generate lyrics that match the high-energy vibe of electronic dance music.",
+      "R&B combines soulful vocals with smooth grooves. Create romantic, emotionally rich lyrics and convert them into a smooth demo.",
+    EDM: "EDM lyrics are energetic and uplifting, perfect for festival anthems. Generate lyrics and render a demo with electronic instrumentation.",
     Country:
-      "Country music tells stories of life, love, and heartache. Our generator creates authentic country lyrics with vivid storytelling.",
-    Jazz: "Jazz lyrics are sophisticated and poetic, often exploring complex emotions. Generate smooth, introspective lyrics with a timeless feel.",
-    "K-Pop":
-      "K-Pop blends catchy hooks with dynamic performance. Create lyrics that capture the vibrant, trend-setting spirit of Korean pop music.",
+      "Country music tells stories of life, love, and heartache. Create authentic country lyrics and hear a demo with warm instrumentation.",
+    Jazz: "Jazz lyrics are sophisticated and poetic, often exploring complex emotions. Generate introspective lyrics and a demo with jazz textures.",
+    "K-Pop": "K-Pop blends catchy hooks with dynamic performance. Create lyrics and render an energetic K-Pop demo fast.",
   }
 
   const genreDescription =
     genreDescriptions[page.preset.genre || ""] ||
-    "Our AI-powered lyrics generator helps you create professional, creative, and unique lyrics in seconds."
+    "Our AI-powered lyrics-to-song generator helps you craft lyrics and turn them into playable demos in minutes."
 
   return (
     <>
@@ -109,19 +108,19 @@ export default async function GeneratorPage({
             <p>{genreDescription}</p>
             <p>
               Whether you're a professional songwriter, aspiring musician, or creative enthusiast, our{" "}
-              {page.title.toLowerCase()}
-              provides instant inspiration and professional-quality results. Generate
+              {page.title.toLowerCase()} provides instant inspiration and playable demos. Generate
               {page.preset.genre ? ` ${page.preset.genre}` : ""}
-              {page.preset.mood ? ` ${page.preset.mood.toLowerCase()}` : ""} lyrics that match your artistic vision.
+              {page.preset.mood ? ` ${page.preset.mood.toLowerCase()}` : ""} lyrics, then convert them into a full song
+              that matches your artistic vision.
             </p>
 
             <h3>Why Use Our {page.title}?</h3>
             <ul>
               <li>
-                <strong>AI-Powered Creativity</strong>: Advanced language models create authentic, genre-specific lyrics
+                <strong>AI-Powered Creativity</strong>: Create lyrics and vocal phrasing that match the genre
               </li>
               <li>
-                <strong>Instant Results</strong>: Generate complete song lyrics in seconds, not hours
+                <strong>Fast Rendering</strong>: Generate lyrics and convert them into a demo in minutes
               </li>
               <li>
                 <strong>100% Free</strong>: No subscriptions, no hidden fees, unlimited generations
@@ -130,14 +129,14 @@ export default async function GeneratorPage({
                 <strong>Fully Customizable</strong>: Control genre, mood, theme, length, and language
               </li>
               <li>
-                <strong>Professional Quality</strong>: Structured output with verses, choruses, and bridges
+                <strong>Studio-Ready Audio</strong>: AI vocals and instrumentals you can share instantly
               </li>
               <li>
-                <strong>Copyright Free</strong>: All generated lyrics are yours to use commercially
+                <strong>Royalty Free</strong>: All generated lyrics and songs are yours to use commercially
               </li>
             </ul>
 
-            <h3>How to Create {page.preset.genre || "Perfect"} Lyrics</h3>
+            <h3>How to Create {page.preset.genre || "Perfect"} Lyrics and Songs</h3>
             <ol>
               <li>
                 <strong>Set Your Style</strong>: Choose from {page.preset.genre || "various genres"} and customize the
@@ -150,10 +149,10 @@ export default async function GeneratorPage({
                 <strong>Choose Song Length</strong>: Select short, medium, or long format based on your needs
               </li>
               <li>
-                <strong>Generate & Refine</strong>: Click generate and regenerate until you find the perfect match
+                <strong>Generate & Refine</strong>: Create lyrics, then regenerate until the draft feels right
               </li>
               <li>
-                <strong>Download & Use</strong>: Copy or download your lyrics for immediate use
+                <strong>Render & Download</strong>: Convert to a song and download the MP3 and lyrics
               </li>
             </ol>
 

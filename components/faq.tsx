@@ -6,54 +6,44 @@ import { cn } from "@/lib/utils"
 
 const faqs = [
   {
-    question: "What is an AI Lyrics Generator and How Does It Work?",
+    question: "What is Lyrics Into Song and how does it work?",
     answer:
-      "An AI lyrics generator is a sophisticated tool that uses artificial intelligence and natural language processing to create original song lyrics. Our generator analyzes thousands of successful songs across different genres to understand patterns, rhyme schemes, and lyrical structures. Simply input your preferences for genre, mood, theme, and any keywords, and the AI will instantly generate unique, creative lyrics tailored to your specifications. The technology behind it uses advanced machine learning models trained on diverse musical styles to ensure authenticity and creativity in every generation.",
+      "Lyrics Into Song turns your written lyrics into a complete track with AI vocals and instrumentals. Paste your lyrics, choose a genre and mood, and the engine generates a full demo you can play, download, and share.",
   },
   {
-    question: "Is the AI Lyrics Generator Completely Free?",
+    question: "How can I get the best results from my lyrics?",
     answer:
-      "Yes! Our AI lyrics generator is 100% free to use with no hidden costs or subscriptions required. You can generate unlimited lyrics for any genre, mood, or theme without creating an account or providing payment information. We believe in democratizing creativity and making songwriting tools accessible to everyone - from professional musicians to hobbyists and students. All generated lyrics are yours to use freely for personal or commercial projects.",
+      "Use clear structure (verse, chorus, bridge), add a specific mood, and include vivid details or keywords. The more direction you provide, the more tailored the melody, vocal delivery, and arrangement will feel.",
   },
   {
-    question: "Can I Use Generated Lyrics for Commercial Music Projects?",
+    question: "Is Lyrics Into Song free to use?",
     answer:
-      "All lyrics created by our AI generator are 100% original and copyright-free. You have full rights to use them for any purpose including recording songs, live performances, YouTube videos, streaming platforms, commercial releases, and more. No attribution is required, though we always appreciate it. The AI creates unique content every time, ensuring your lyrics are completely original and won't conflict with existing copyrighted material.",
+      "Yes. You can start converting lyrics without signing up or adding a credit card. Free access is designed for quick demos and exploration.",
   },
   {
-    question: "What Music Genres and Styles Are Supported?",
+    question: "Can I use the generated songs commercially?",
     answer:
-      "Our AI supports 15+ music genres including Pop, Rock, Hip Hop/Rap, R&B, Country, Jazz, Blues, EDM, Folk, Metal, Indie, Reggae, K-Pop, and more. Each genre is optimized with specific lyrical patterns, vocabulary, and themes authentic to that style. Whether you need catchy pop hooks, introspective indie lyrics, hard-hitting rap verses, or soulful R&B ballads, our AI understands the nuances of each genre and creates lyrics that sound professional and genre-appropriate.",
+      "Songs created on Lyrics Into Song are royalty-free and cleared for personal or commercial use. That means you can publish releases, share on social platforms, or use them in client projects.",
   },
   {
-    question: "How Long Does It Take to Generate Lyrics?",
+    question: "What genres and styles are supported?",
     answer:
-      "Lyrics generation is instant! Our advanced AI typically generates complete, professional-quality lyrics in 3-10 seconds depending on your specified length and complexity. There's no waiting list, no processing delays - just immediate results. You can regenerate as many times as you want to explore different creative directions, making it perfect for brainstorming sessions or when you need quick inspiration.",
+      "We support pop, rock, hip hop, R&B, country, EDM, indie, folk, jazz, and more. Each style adapts the instrumentation, tempo, and vocal tone to match the genre you select.",
   },
   {
-    question: "What Languages Does the Generator Support?",
+    question: "How long does it take to generate a song?",
     answer:
-      "Our AI lyrics generator supports multiple languages including English, Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese (Simplified and Traditional), and more. The AI understands the linguistic nuances, cultural references, and idiomatic expressions of each language, ensuring lyrics feel natural and authentic rather than simply translated. This makes it perfect for international artists or anyone looking to create multilingual content.",
+      "Most conversions finish in a few minutes depending on the length of your lyrics and the complexity of the style. You can regenerate at any time to explore new arrangements.",
   },
   {
-    question: "Can I Edit and Customize the Generated Lyrics?",
+    question: "Can I edit the lyrics after generation?",
     answer:
-      "Yes! All generated lyrics are fully editable. Once created, you can modify any line, add your own verses, adjust rhyme schemes, or combine elements from multiple generations. The output panel functions as a text editor where you can refine the lyrics to perfectly match your artistic vision. You can also copy, download, or regenerate with different parameters to explore various creative possibilities.",
+      "Absolutely. You can tweak lyrics directly in the editor before regenerating or export them as a text file. Iterating on small changes is the fastest way to dial in the final track.",
   },
   {
-    question: "Do I Need an Account or Sign Up to Use the Generator?",
+    question: "What can I download after the song is ready?",
     answer:
-      "No account or registration is required! You can start generating lyrics immediately without providing any personal information, email address, or credit card details. Simply visit the website, fill in your preferences, and click generate. However, creating a free optional account allows you to save your favorite generations, access history, and unlock additional premium features in the future.",
-  },
-  {
-    question: "What Makes This Generator Better Than Other Lyrics Tools?",
-    answer:
-      "Our generator stands out with state-of-the-art AI technology that creates contextually aware, emotionally resonant lyrics rather than random word combinations. We offer extensive customization options (genre, mood, theme, length, language), support for 15+ musical genres, multi-language capabilities, instant generation speeds, and a user-friendly interface. Unlike basic rhyme generators, our AI understands song structure, storytelling, and emotional depth, producing lyrics that feel professionally written and ready to use.",
-  },
-  {
-    question: "Are There Any Limitations on How Many Lyrics I Can Generate?",
-    answer:
-      "There are no limits! Generate as many lyrics as you need - whether that's 5, 50, or 500. Experiment with different genres, moods, and themes until you find the perfect lyrics for your song. Our service is designed to support your creative process without restrictions, quotas, or daily limits. Feel free to use the generator as much as you need for all your songwriting projects.",
+      "You can download the audio as an MP3 as well as your lyrics as a text or image card for sharing.",
   },
 ]
 
@@ -67,10 +57,10 @@ export function FAQ() {
   return (
     <div className="max-w-3xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-balance">
-        Frequently Asked Questions About AI Lyrics Generation
+        Frequently Asked Questions About Lyrics Into Song
       </h2>
       <p className="text-center text-muted-foreground mb-12 text-pretty leading-relaxed">
-        Everything you need to know about creating professional song lyrics with artificial intelligence
+        Everything you need to know about turning lyrics into full songs with AI
       </p>
 
       <div className="space-y-4">

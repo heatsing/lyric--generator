@@ -8,7 +8,7 @@ const reviews = [
     avatar: "SJ",
     rating: 5,
     review:
-      "This AI lyrics generator has been a game-changer for my songwriting process. I can quickly generate ideas and refine them into amazing songs. Highly recommended!",
+      "Lyrics Into Song helps me turn rough drafts into full demos fast. I can share playable songs with my band in minutes.",
   },
   {
     name: "Marcus Chen",
@@ -16,7 +16,7 @@ const reviews = [
     avatar: "MC",
     rating: 5,
     review:
-      "The music generator creates professional-quality beats that I can use in my productions. It's like having a studio assistant available 24/7.",
+      "The vocal and instrumental blend is impressive. I use it to pitch arrangements before going into the studio.",
   },
   {
     name: "Emily Rodriguez",
@@ -24,7 +24,7 @@ const reviews = [
     avatar: "ER",
     rating: 5,
     review:
-      "I use the song generator for my YouTube videos and podcasts. The quality is incredible and it saves me so much time and money on music licensing!",
+      "I drop my lyrics in, pick a genre, and get a song for reels and shorts. It saves me hours every week.",
   },
   {
     name: "David Kim",
@@ -32,7 +32,7 @@ const reviews = [
     avatar: "DK",
     rating: 5,
     review:
-      "As a professional songwriter, I was skeptical at first. But this tool has become essential in my creative workflow. The lyrics are surprisingly good!",
+      "Being able to hear my lyrics sung out loud changes everything. The demos are clean and ready to share.",
   },
   {
     name: "Lisa Thompson",
@@ -40,7 +40,7 @@ const reviews = [
     avatar: "LT",
     rating: 5,
     review:
-      "I use this with my students to teach song structure and lyric writing. It's an amazing educational tool that makes learning fun and interactive.",
+      "My students love hearing their own lyrics turned into songs. It's a fun way to teach structure and rhythm.",
   },
   {
     name: "James Wilson",
@@ -48,7 +48,7 @@ const reviews = [
     avatar: "JW",
     rating: 5,
     review:
-      "The complete song generator is mind-blowing. I've created several tracks that I'm actually releasing. The vocal quality is surprisingly realistic!",
+      "I can explore different styles quickly. The AI vocals give me a clear direction before recording final takes.",
   },
 ]
 
@@ -56,9 +56,9 @@ export function CustomerReviews() {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Loved by Creators Worldwide</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Trusted by Songwriters & Creators</h2>
         <p className="text-muted-foreground text-pretty max-w-2xl mx-auto">
-          Join thousands of musicians, songwriters, and content creators using our AI tools every day
+          Lyrics Into Song powers demos, releases, and social content for creators around the world
         </p>
       </div>
 
