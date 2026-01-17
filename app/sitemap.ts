@@ -105,7 +105,6 @@ const seoPages = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://lyricgenerator.cc"
-  const currentDate = new Date().toISOString()
 
   const genres = [
     "rnb",
@@ -128,54 +127,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "birthday-song",
   ]
 
-  const genrePages: MetadataRoute.Sitemap = genres.map((slug) => ({
-    url: `${baseUrl}/genre/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }))
-
-  const dynamicGeneratorPages: MetadataRoute.Sitemap = seoPages.map((page) => ({
-    url: `${baseUrl}/generator/${page.slug}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
-    priority: 0.85,
-  }))
-
-  const sitemap: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/poem-generator`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/story-generator`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    ...genrePages,
-    ...dynamicGeneratorPages,
+  const seoSlugs = [
+    "happy-pop-lyrics",
+    "sad-pop-lyrics",
+    "romantic-pop-lyrics",
+    "energetic-pop-lyrics",
+    "happy-rock-lyrics",
+    "sad-rap-lyrics",
+    "romantic-rnb-lyrics",
+    "energetic-edm-lyrics",
+    "party-edm-lyrics",
+    "love-pop-lyrics",
+    "breakup-pop-lyrics",
+    "party-rap-lyrics",
+    "inspirational-rock-lyrics",
+    "chill-rnb-lyrics",
+    "dark-rap-lyrics",
+    "nostalgic-country-lyrics",
+    "happy-jazz-lyrics",
+    "romantic-kpop-lyrics",
+    "melancholic-folk-lyrics",
+    "angry-metal-lyrics",
+    "diss-track-lyrics",
+    "love-song-lyrics-for-her",
+    "breakup-song-lyrics",
+    "birthday-song-lyrics",
+    "christmas-song-lyrics",
   ]
 
-  return sitemap
+  return [
+    { url: baseUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
+    { url: `${baseUrl}/poem-generator`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/story-generator`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    ...genres.map((slug) => ({
+      url: `${baseUrl}/genre/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+    ...seoSlugs.map((slug) => ({
+      url: `${baseUrl}/generator/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    })),
+  ]
 }
