@@ -2,351 +2,226 @@
   {
     "id": 1,
     "slug": "happy-pop-lyrics",
-    "title": "Happy Pop Lyrics Generator",
-    "description": "Create happy pop song lyrics instantly with AI. Perfect for upbeat pop songs, free and unlimited.",
-    "h1": "AI Happy Pop Lyrics Generator",
-    "keywords": "happy pop lyrics, pop song generator, happy songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Happy",
-      "theme": "",
-      "topic": "Happy Pop music"
-    }
+    "title": "Happy Pop Lyrics Generator | Free AI Song Creator",
+    "description": "Generate upbeat happy pop lyrics instantly with AI. Create catchy, radio-friendly pop songs free. No signup required.",
+    "h1": "Free Happy Pop Lyrics Generator",
+    "keywords": "happy pop lyrics generator, upbeat pop songs, cheerful lyrics maker, pop song creator free, ai pop lyrics",
+    "preset": { "genre": "Pop", "mood": "Happy", "theme": "", "topic": "Happy Pop music" }
   },
   {
     "id": 2,
     "slug": "sad-pop-lyrics",
-    "title": "Sad Pop Lyrics Generator",
-    "description": "Create sad pop song lyrics instantly with AI. Perfect for emotional pop songs, free and unlimited.",
-    "h1": "AI Sad Pop Lyrics Generator",
-    "keywords": "sad pop lyrics, pop song generator, sad songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Sad",
-      "theme": "",
-      "topic": "Sad Pop music"
-    }
+    "title": "Sad Pop Lyrics Generator | Emotional Songs Free",
+    "description": "Create emotional sad pop lyrics with AI. Generate heartfelt ballads and melancholic pop songs instantly. Free unlimited.",
+    "h1": "Free Sad Pop Lyrics Generator",
+    "keywords": "sad pop lyrics, emotional pop songs, heartbreak lyrics generator, melancholic pop, ballad creator",
+    "preset": { "genre": "Pop", "mood": "Sad", "theme": "", "topic": "Sad Pop music" }
   },
   {
     "id": 3,
     "slug": "romantic-pop-lyrics",
-    "title": "Romantic Pop Lyrics Generator",
-    "description": "Create romantic pop song lyrics instantly with AI. Perfect for romantic pop songs, free and unlimited.",
-    "h1": "AI Romantic Pop Lyrics Generator",
-    "keywords": "romantic pop lyrics, pop song generator, romantic songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Romantic",
-      "theme": "",
-      "topic": "Romantic Pop music"
-    }
+    "title": "Romantic Pop Lyrics Generator | Love Songs Free",
+    "description": "Generate romantic pop love lyrics with AI. Create beautiful love songs and romantic ballads instantly. Free tool.",
+    "h1": "Free Romantic Pop Lyrics Generator",
+    "keywords": "romantic pop lyrics, love song generator, romantic ballads, pop love songs, valentine lyrics",
+    "preset": { "genre": "Pop", "mood": "Romantic", "theme": "", "topic": "Romantic Pop music" }
   },
   {
     "id": 4,
     "slug": "energetic-pop-lyrics",
-    "title": "Energetic Pop Lyrics Generator",
-    "description": "Create energetic pop song lyrics instantly with AI. Perfect for energetic pop songs, free and unlimited.",
-    "h1": "AI Energetic Pop Lyrics Generator",
-    "keywords": "energetic pop lyrics, pop song generator, energetic songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Energetic",
-      "theme": "",
-      "topic": "Energetic Pop music"
-    }
+    "title": "Energetic Pop Lyrics Generator | Dance Songs Free",
+    "description": "Create high-energy pop lyrics with AI. Generate dance-worthy, upbeat pop songs instantly. Free unlimited generations.",
+    "h1": "Free Energetic Pop Lyrics Generator",
+    "keywords": "energetic pop lyrics, dance pop songs, upbeat lyrics generator, party pop music, high energy songs",
+    "preset": { "genre": "Pop", "mood": "Energetic", "theme": "", "topic": "Energetic Pop music" }
   },
   {
     "id": 5,
     "slug": "happy-rock-lyrics",
-    "title": "Happy Rock Lyrics Generator",
-    "description": "Create happy rock song lyrics instantly with AI. Perfect for upbeat rock songs, free and unlimited.",
-    "h1": "AI Happy Rock Lyrics Generator",
-    "keywords": "happy rock lyrics, rock song generator, happy songs",
-    "preset": {
-      "genre": "Rock",
-      "mood": "Happy",
-      "theme": "",
-      "topic": "Happy Rock music"
-    }
+    "title": "Happy Rock Lyrics Generator | Upbeat Rock Free",
+    "description": "Generate upbeat rock lyrics with AI. Create feel-good rock anthems and positive rock songs instantly. Free tool.",
+    "h1": "Free Happy Rock Lyrics Generator",
+    "keywords": "happy rock lyrics, upbeat rock songs, positive rock generator, feel-good rock, rock anthem creator",
+    "preset": { "genre": "Rock", "mood": "Happy", "theme": "", "topic": "Happy Rock music" }
   },
   {
     "id": 6,
     "slug": "sad-rap-lyrics",
-    "title": "Sad Rap Lyrics Generator",
-    "description": "Create sad rap song lyrics instantly with AI. Perfect for emotional rap songs, free and unlimited.",
-    "h1": "AI Sad Rap Lyrics Generator",
-    "keywords": "sad rap lyrics, rap song generator, sad songs",
-    "preset": {
-      "genre": "Rap",
-      "mood": "Sad",
-      "theme": "",
-      "topic": "Sad Rap music"
-    }
+    "title": "Sad Rap Lyrics Generator | Emotional Hip-Hop Free",
+    "description": "Create emotional sad rap lyrics with AI. Generate deep, introspective hip-hop verses instantly. Free unlimited.",
+    "h1": "Free Sad Rap Lyrics Generator",
+    "keywords": "sad rap lyrics, emotional hip hop, deep rap verses, introspective rap, emo rap generator",
+    "preset": { "genre": "Rap", "mood": "Sad", "theme": "", "topic": "Sad Rap music" }
   },
   {
     "id": 7,
     "slug": "romantic-rnb-lyrics",
-    "title": "Romantic R&B Lyrics Generator",
-    "description": "Generate R&B lyrics about romance. AI-powered R&B song lyrics generator for love themed songs.",
-    "h1": "Romantic R&B Lyrics Generator - AI Powered",
-    "keywords": "romantic r&b lyrics, r&b love songs",
-    "preset": {
-      "genre": "R&B",
-      "mood": "Romantic",
-      "theme": "Love",
-      "topic": "Romance in R&B style"
-    }
+    "title": "Romantic R&B Lyrics Generator | Love Songs Free",
+    "description": "Generate smooth romantic R&B lyrics with AI. Create soulful love songs and slow jams instantly. Free tool.",
+    "h1": "Free Romantic R&B Lyrics Generator",
+    "keywords": "romantic r&b lyrics, r&b love songs, slow jam generator, soulful lyrics, r&b ballads",
+    "preset": { "genre": "R&B", "mood": "Romantic", "theme": "Love", "topic": "Romance in R&B style" }
   },
   {
     "id": 8,
     "slug": "energetic-edm-lyrics",
-    "title": "Energetic EDM Lyrics Generator",
-    "description": "Create energetic EDM song lyrics instantly with AI. Perfect for energetic EDM songs, free and unlimited.",
-    "h1": "AI Energetic EDM Lyrics Generator",
-    "keywords": "energetic edm lyrics, edm song generator, energetic songs",
-    "preset": {
-      "genre": "EDM",
-      "mood": "Energetic",
-      "theme": "",
-      "topic": "Energetic EDM music"
-    }
+    "title": "Energetic EDM Lyrics Generator | Dance Music Free",
+    "description": "Create high-energy EDM lyrics with AI. Generate festival anthems and dance tracks instantly. Free unlimited.",
+    "h1": "Free Energetic EDM Lyrics Generator",
+    "keywords": "edm lyrics generator, dance music lyrics, festival anthem creator, electronic music lyrics, rave songs",
+    "preset": { "genre": "EDM", "mood": "Energetic", "theme": "", "topic": "Energetic EDM music" }
   },
   {
     "id": 9,
     "slug": "party-edm-lyrics",
-    "title": "Party EDM Lyrics Generator",
-    "description": "Generate EDM lyrics about party. AI-powered EDM song lyrics generator for party themed songs.",
-    "h1": "Party EDM Lyrics Generator - AI Powered",
-    "keywords": "party edm lyrics, edm party songs",
-    "preset": {
-      "genre": "EDM",
-      "mood": "Energetic",
-      "theme": "Party",
-      "topic": "Party in EDM style"
-    }
+    "title": "Party EDM Lyrics Generator | Club Songs Free",
+    "description": "Generate party EDM lyrics with AI. Create club bangers and party anthems instantly. Free unlimited generations.",
+    "h1": "Free Party EDM Lyrics Generator",
+    "keywords": "party edm lyrics, club songs generator, party anthem creator, edm party music, dj lyrics",
+    "preset": { "genre": "EDM", "mood": "Energetic", "theme": "Party", "topic": "Party in EDM style" }
   },
   {
     "id": 10,
     "slug": "love-pop-lyrics",
-    "title": "Love Pop Lyrics Generator",
-    "description": "Generate Pop lyrics about love. AI-powered Pop song lyrics generator for love themed songs.",
-    "h1": "Love Pop Lyrics Generator - AI Powered",
-    "keywords": "love pop lyrics, pop love songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Romantic",
-      "theme": "Love",
-      "topic": "Love in Pop style"
-    }
+    "title": "Love Pop Lyrics Generator | Romance Songs Free",
+    "description": "Create beautiful love pop lyrics with AI. Generate romantic pop songs and love ballads instantly. Free tool.",
+    "h1": "Free Love Pop Lyrics Generator",
+    "keywords": "love pop lyrics, romance songs generator, love ballad creator, romantic pop music, love song maker",
+    "preset": { "genre": "Pop", "mood": "Romantic", "theme": "Love", "topic": "Love in Pop style" }
   },
   {
     "id": 11,
     "slug": "breakup-pop-lyrics",
-    "title": "Breakup Pop Lyrics Generator",
-    "description": "Generate Pop lyrics about breakup. AI-powered Pop song lyrics generator for breakup themed songs.",
-    "h1": "Breakup Pop Lyrics Generator - AI Powered",
-    "keywords": "breakup pop lyrics, pop breakup songs",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Sad",
-      "theme": "Breakup",
-      "topic": "Breakup in Pop style"
-    }
+    "title": "Breakup Pop Lyrics Generator | Heartbreak Songs",
+    "description": "Generate breakup pop lyrics with AI. Create emotional heartbreak songs and moving on anthems. Free unlimited.",
+    "h1": "Free Breakup Pop Lyrics Generator",
+    "keywords": "breakup lyrics generator, heartbreak songs, moving on lyrics, breakup pop music, sad love songs",
+    "preset": { "genre": "Pop", "mood": "Sad", "theme": "Breakup", "topic": "Breakup in Pop style" }
   },
   {
     "id": 12,
     "slug": "party-rap-lyrics",
-    "title": "Party Rap Lyrics Generator",
-    "description": "Generate Rap lyrics about party. AI-powered Rap song lyrics generator for party themed songs.",
-    "h1": "Party Rap Lyrics Generator - AI Powered",
-    "keywords": "party rap lyrics, rap party songs",
-    "preset": {
-      "genre": "Rap",
-      "mood": "Energetic",
-      "theme": "Party",
-      "topic": "Party in Rap style"
-    }
+    "title": "Party Rap Lyrics Generator | Club Hip-Hop Free",
+    "description": "Create party rap lyrics with AI. Generate hype club tracks and party anthems instantly. Free unlimited.",
+    "h1": "Free Party Rap Lyrics Generator",
+    "keywords": "party rap lyrics, club hip hop, hype songs generator, rap party music, turn up lyrics",
+    "preset": { "genre": "Rap", "mood": "Energetic", "theme": "Party", "topic": "Party in Rap style" }
   },
   {
     "id": 13,
     "slug": "inspirational-rock-lyrics",
-    "title": "Inspirational Rock Lyrics Generator",
-    "description": "Create inspirational rock song lyrics instantly with AI. Perfect for inspirational rock songs, free and unlimited.",
-    "h1": "AI Inspirational Rock Lyrics Generator",
-    "keywords": "inspirational rock lyrics, rock song generator, inspirational songs",
-    "preset": {
-      "genre": "Rock",
-      "mood": "Inspirational",
-      "theme": "",
-      "topic": "Inspirational Rock music"
-    }
+    "title": "Inspirational Rock Lyrics Generator | Anthem Free",
+    "description": "Generate inspirational rock lyrics with AI. Create motivational anthems and uplifting rock songs. Free tool.",
+    "h1": "Free Inspirational Rock Lyrics Generator",
+    "keywords": "inspirational rock lyrics, motivational anthems, uplifting rock songs, empowering lyrics, rock ballads",
+    "preset": { "genre": "Rock", "mood": "Inspirational", "theme": "", "topic": "Inspirational Rock music" }
   },
   {
     "id": 14,
     "slug": "chill-rnb-lyrics",
-    "title": "Chill R&B Lyrics Generator",
-    "description": "Create chill R&B song lyrics instantly with AI. Perfect for chill R&B songs, free and unlimited.",
-    "h1": "AI Chill R&B Lyrics Generator",
-    "keywords": "chill r&b lyrics, r&b song generator, chill songs",
-    "preset": {
-      "genre": "R&B",
-      "mood": "Chill",
-      "theme": "",
-      "topic": "Chill R&B music"
-    }
+    "title": "Chill R&B Lyrics Generator | Smooth Vibes Free",
+    "description": "Create chill R&B lyrics with AI. Generate smooth, laid-back R&B tracks instantly. Free unlimited generations.",
+    "h1": "Free Chill R&B Lyrics Generator",
+    "keywords": "chill r&b lyrics, smooth r&b songs, laid-back vibes, relaxing r&b, chill soul music",
+    "preset": { "genre": "R&B", "mood": "Chill", "theme": "", "topic": "Chill R&B music" }
   },
   {
     "id": 15,
     "slug": "dark-rap-lyrics",
-    "title": "Dark Rap Lyrics Generator",
-    "description": "Create dark rap song lyrics instantly with AI. Perfect for dark rap songs, free and unlimited.",
-    "h1": "AI Dark Rap Lyrics Generator",
-    "keywords": "dark rap lyrics, rap song generator, dark songs",
-    "preset": {
-      "genre": "Rap",
-      "mood": "Dark",
-      "theme": "",
-      "topic": "Dark Rap music"
-    }
+    "title": "Dark Rap Lyrics Generator | Deep Hip-Hop Free",
+    "description": "Generate dark rap lyrics with AI. Create intense, atmospheric hip-hop verses instantly. Free unlimited.",
+    "h1": "Free Dark Rap Lyrics Generator",
+    "keywords": "dark rap lyrics, deep hip hop, intense rap verses, atmospheric rap, underground hip hop",
+    "preset": { "genre": "Rap", "mood": "Dark", "theme": "", "topic": "Dark Rap music" }
   },
   {
     "id": 16,
     "slug": "nostalgic-country-lyrics",
-    "title": "Nostalgic Country Lyrics Generator",
-    "description": "Create nostalgic country song lyrics instantly with AI. Perfect for nostalgic country songs, free and unlimited.",
-    "h1": "AI Nostalgic Country Lyrics Generator",
-    "keywords": "nostalgic country lyrics, country song generator, nostalgic songs",
-    "preset": {
-      "genre": "Country",
-      "mood": "Nostalgic",
-      "theme": "",
-      "topic": "Nostalgic Country music"
-    }
+    "title": "Nostalgic Country Lyrics Generator | Classic Free",
+    "description": "Create nostalgic country lyrics with AI. Generate classic country storytelling songs instantly. Free tool.",
+    "h1": "Free Nostalgic Country Lyrics Generator",
+    "keywords": "nostalgic country lyrics, classic country songs, country storytelling, traditional country, country ballads",
+    "preset": { "genre": "Country", "mood": "Nostalgic", "theme": "", "topic": "Nostalgic Country music" }
   },
   {
     "id": 17,
     "slug": "happy-jazz-lyrics",
-    "title": "Happy Jazz Lyrics Generator",
-    "description": "Create happy jazz song lyrics instantly with AI. Perfect for upbeat jazz songs, free and unlimited.",
-    "h1": "AI Happy Jazz Lyrics Generator",
-    "keywords": "happy jazz lyrics, jazz song generator, happy songs",
-    "preset": {
-      "genre": "Jazz",
-      "mood": "Happy",
-      "theme": "",
-      "topic": "Happy Jazz music"
-    }
+    "title": "Happy Jazz Lyrics Generator | Upbeat Swing Free",
+    "description": "Generate happy jazz lyrics with AI. Create upbeat swing and feel-good jazz songs instantly. Free unlimited.",
+    "h1": "Free Happy Jazz Lyrics Generator",
+    "keywords": "happy jazz lyrics, upbeat jazz songs, swing music generator, feel-good jazz, jazz standards",
+    "preset": { "genre": "Jazz", "mood": "Happy", "theme": "", "topic": "Happy Jazz music" }
   },
   {
     "id": 18,
     "slug": "romantic-kpop-lyrics",
-    "title": "Romantic K-Pop Lyrics Generator",
-    "description": "Create romantic K-Pop song lyrics instantly with AI. Perfect for romantic K-Pop songs, free and unlimited.",
-    "h1": "AI Romantic K-Pop Lyrics Generator",
-    "keywords": "romantic kpop lyrics, kpop song generator, romantic songs",
-    "preset": {
-      "genre": "K-Pop",
-      "mood": "Romantic",
-      "theme": "",
-      "topic": "Romantic K-Pop music"
-    }
+    "title": "Romantic K-Pop Lyrics Generator | Love Songs Free",
+    "description": "Create romantic K-Pop lyrics with AI. Generate Korean pop love songs and ballads instantly. Free tool.",
+    "h1": "Free Romantic K-Pop Lyrics Generator",
+    "keywords": "romantic kpop lyrics, kpop love songs, korean pop ballads, kpop romance, idol lyrics generator",
+    "preset": { "genre": "K-Pop", "mood": "Romantic", "theme": "", "topic": "Romantic K-Pop music" }
   },
   {
     "id": 19,
     "slug": "melancholic-folk-lyrics",
-    "title": "Melancholic Folk Lyrics Generator",
-    "description": "Create melancholic folk song lyrics instantly with AI. Perfect for melancholic folk songs, free and unlimited.",
-    "h1": "AI Melancholic Folk Lyrics Generator",
-    "keywords": "melancholic folk lyrics, folk song generator, melancholic songs",
-    "preset": {
-      "genre": "Folk",
-      "mood": "Melancholic",
-      "theme": "",
-      "topic": "Melancholic Folk music"
-    }
+    "title": "Melancholic Folk Lyrics Generator | Acoustic Free",
+    "description": "Generate melancholic folk lyrics with AI. Create introspective acoustic songs instantly. Free unlimited.",
+    "h1": "Free Melancholic Folk Lyrics Generator",
+    "keywords": "melancholic folk lyrics, sad folk songs, acoustic ballads, introspective folk, indie folk generator",
+    "preset": { "genre": "Folk", "mood": "Melancholic", "theme": "", "topic": "Melancholic Folk music" }
   },
   {
     "id": 20,
     "slug": "angry-metal-lyrics",
-    "title": "Angry Metal Lyrics Generator",
-    "description": "Create angry metal song lyrics instantly with AI. Perfect for angry metal songs, free and unlimited.",
-    "h1": "AI Angry Metal Lyrics Generator",
-    "keywords": "angry metal lyrics, metal song generator, angry songs",
-    "preset": {
-      "genre": "Metal",
-      "mood": "Angry",
-      "theme": "",
-      "topic": "Angry Metal music"
-    }
+    "title": "Angry Metal Lyrics Generator | Heavy Songs Free",
+    "description": "Create powerful angry metal lyrics with AI. Generate intense heavy metal songs instantly. Free unlimited.",
+    "h1": "Free Angry Metal Lyrics Generator",
+    "keywords": "angry metal lyrics, heavy metal songs, intense metal generator, aggressive lyrics, metal anthems",
+    "preset": { "genre": "Metal", "mood": "Angry", "theme": "", "topic": "Angry Metal music" }
   },
   {
     "id": 21,
     "slug": "diss-track-lyrics",
-    "title": "Diss Track Lyrics Generator",
-    "description": "Create diss track lyrics with AI. Free and unlimited lyrics generation.",
-    "h1": "AI Diss Track Lyrics Generator",
-    "keywords": "diss track lyrics",
-    "preset": {
-      "genre": "Rap",
-      "mood": "Angry",
-      "theme": "",
-      "topic": "diss track"
-    }
+    "title": "Diss Track Lyrics Generator | Battle Rap Free",
+    "description": "Generate savage diss track lyrics with AI. Create battle rap verses and comebacks instantly. Free tool.",
+    "h1": "Free Diss Track Lyrics Generator",
+    "keywords": "diss track generator, battle rap lyrics, rap beef lyrics, diss verses, roast lyrics maker",
+    "preset": { "genre": "Rap", "mood": "Angry", "theme": "", "topic": "diss track" }
   },
   {
     "id": 22,
     "slug": "love-song-lyrics-for-her",
-    "title": "Love Song Lyrics Generator for Her",
-    "description": "Create love song lyrics for her with AI. Free and unlimited lyrics generation.",
-    "h1": "AI Love Song Lyrics Generator for Her",
-    "keywords": "love song lyrics for her",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Romantic",
-      "theme": "Love",
-      "topic": "love song for girlfriend"
-    }
+    "title": "Love Song Lyrics for Her | Romantic Songs Free",
+    "description": "Create romantic love song lyrics for her with AI. Generate heartfelt songs for your girlfriend. Free tool.",
+    "h1": "Free Love Song Lyrics Generator for Her",
+    "keywords": "love song for her, girlfriend lyrics, romantic songs for her, love letter lyrics, dedication songs",
+    "preset": { "genre": "Pop", "mood": "Romantic", "theme": "Love", "topic": "love song for girlfriend" }
   },
   {
     "id": 23,
     "slug": "breakup-song-lyrics",
-    "title": "Breakup Song Lyrics Generator",
-    "description": "Create breakup song lyrics with AI. Free and unlimited lyrics generation.",
-    "h1": "AI Breakup Song Lyrics Generator",
-    "keywords": "breakup song lyrics",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Sad",
-      "theme": "Breakup",
-      "topic": "breakup and moving on"
-    }
+    "title": "Breakup Song Lyrics Generator | Heartbreak Free",
+    "description": "Generate emotional breakup song lyrics with AI. Create moving heartbreak anthems instantly. Free unlimited.",
+    "h1": "Free Breakup Song Lyrics Generator",
+    "keywords": "breakup song lyrics, heartbreak songs, moving on lyrics, sad breakup music, emotional songs",
+    "preset": { "genre": "Pop", "mood": "Sad", "theme": "Breakup", "topic": "breakup and moving on" }
   },
   {
     "id": 24,
     "slug": "birthday-song-lyrics",
-    "title": "Birthday Song Lyrics Generator",
-    "description": "Create perfect birthday song lyrics with AI. Generate custom birthday songs for your special celebration.",
-    "h1": "AI Birthday Song Lyrics Generator",
-    "keywords": "birthday song lyrics, birthday songs, birthday music generator",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Happy",
-      "theme": "Birthday",
-      "topic": "Birthday celebration song"
-    }
+    "title": "Birthday Song Lyrics Generator | Custom Songs",
+    "description": "Create personalized birthday song lyrics with AI. Generate custom celebration songs instantly. Free tool.",
+    "h1": "Free Birthday Song Lyrics Generator",
+    "keywords": "birthday song lyrics, custom birthday songs, celebration lyrics, happy birthday generator, party songs",
+    "preset": { "genre": "Pop", "mood": "Happy", "theme": "Birthday", "topic": "Birthday celebration song" }
   },
   {
     "id": 25,
     "slug": "christmas-song-lyrics",
-    "title": "Christmas Song Lyrics Generator",
-    "description": "Create perfect christmas song lyrics with AI. Generate custom christmas songs for your special celebration.",
-    "h1": "AI Christmas Song Lyrics Generator",
-    "keywords": "christmas song lyrics, christmas songs, christmas music generator",
-    "preset": {
-      "genre": "Pop",
-      "mood": "Happy",
-      "theme": "Christmas",
-      "topic": "Christmas celebration song"
-    }
+    "title": "Christmas Song Lyrics Generator | Holiday Free",
+    "description": "Generate festive Christmas song lyrics with AI. Create holiday carols and seasonal songs. Free unlimited.",
+    "h1": "Free Christmas Song Lyrics Generator",
+    "keywords": "christmas song lyrics, holiday lyrics generator, christmas carols, festive songs, seasonal music",
+    "preset": { "genre": "Pop", "mood": "Happy", "theme": "Christmas", "topic": "Christmas celebration song" }
   }
 ]
