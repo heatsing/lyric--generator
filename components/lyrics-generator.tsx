@@ -352,12 +352,19 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
       {/* Left Panel - Input Form */}
-      <Card className="p-6 space-y-6 border-2">
+      <Card className="p-6 lg:p-8 space-y-6 border border-border/50 shadow-soft card-hover bg-card/80 backdrop-blur-sm">
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-balance">{t.generator.customize}</h2>
-          <p className="text-sm text-muted-foreground text-pretty">{t.generator.customizeDesc}</p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center shadow-lg">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-balance">{t.generator.customize}</h2>
+              <p className="text-sm text-muted-foreground text-pretty">{t.generator.customizeDesc}</p>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -441,7 +448,12 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
           </div>
         </div>
 
-        <Button onClick={handleGenerate} disabled={isGenerating} className="w-full" size="lg">
+        <Button
+          onClick={handleGenerate}
+          disabled={isGenerating}
+          className="w-full bg-gradient-brand hover:opacity-90 text-white shadow-lg btn-shine glow-primary transition-all duration-300"
+          size="lg"
+        >
           {isGenerating ? (
             <>
               <Loader2 className="w-5 h-5 mr-2 animate-spin" />
@@ -457,9 +469,14 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
       </Card>
 
       {/* Right Panel - Generated Lyrics */}
-      <Card className="p-6 space-y-4 border-2">
+      <Card className="p-6 lg:p-8 space-y-4 border border-border/50 shadow-soft bg-card/80 backdrop-blur-sm">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-balance">{t.generator.yourLyrics}</h2>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+              <Music2 className="w-5 h-5 text-white" />
+            </div>
+            <h2 className="text-2xl font-bold text-balance">{t.generator.yourLyrics}</h2>
+          </div>
           {lyrics && (
             <div className="flex gap-2">
               <Button onClick={handleCopy} variant="outline" size="sm" title="Copy to clipboard">
@@ -485,9 +502,22 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
         <div className="min-h-[500px]">
           {isGenerating ? (
             <div className="flex flex-col items-center justify-center h-full py-16">
-              <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
-              <p className="text-muted-foreground text-center font-medium">{generationProgress}</p>
-              <p className="text-sm text-muted-foreground/60 mt-2">This usually takes 3-5 seconds</p>
+              <div className="relative">
+                <div className="w-16 h-16 rounded-full bg-gradient-brand animate-spin" style={{ animationDuration: '2s' }} />
+                <div className="absolute inset-2 rounded-full bg-card" />
+                <Loader2 className="absolute inset-0 m-auto w-8 h-8 text-primary animate-spin" />
+              </div>
+              <p className="text-foreground text-center font-medium mt-6">{generationProgress}</p>
+              <p className="text-sm text-muted-foreground mt-2">This usually takes 3-5 seconds</p>
+              <div className="flex gap-1 mt-4">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="w-2 h-2 rounded-full bg-primary animate-bounce"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  />
+                ))}
+              </div>
             </div>
           ) : lyrics ? (
             <div className="space-y-4">
@@ -563,8 +593,16 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full py-16 text-center">
-              <Music2 className="w-16 h-16 text-muted-foreground/50 mb-4" />
-              <p className="text-muted-foreground text-balance">{t.generator.createPrompt}</p>
+              <div className="relative mb-6">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
+                  <Music2 className="w-12 h-12 text-muted-foreground/50" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-gradient-brand flex items-center justify-center shadow-lg animate-bounce" style={{ animationDuration: '2s' }}>
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+              </div>
+              <p className="text-lg font-medium text-foreground mb-2">Ready to Create</p>
+              <p className="text-muted-foreground text-balance max-w-xs">{t.generator.createPrompt}</p>
             </div>
           )}
         </div>

@@ -1,20 +1,33 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { ThemeToggle } from "@/components/ThemeToggle"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Logo, LogoCompact } from "@/components/Logo"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/95">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-soft'
+        : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="hover:opacity-90 transition-opacity">
+        <Link href="/" className="hover:opacity-90 transition-opacity group">
           {/* Desktop logo */}
           <div className="hidden sm:block">
             <Logo />
@@ -26,32 +39,39 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-sm font-medium text-foreground transition-colors">
+        <nav className="hidden md:flex items-center gap-1">
+          <Link
+            href="/"
+            className="relative px-4 py-2 text-sm font-medium text-foreground rounded-lg hover:bg-primary/10 transition-all duration-200"
+          >
             Lyric Generator
           </Link>
           <Link
             href="/poem-generator"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="relative px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-lg transition-all duration-200"
           >
             Poem Generator
           </Link>
           <Link
             href="/story-generator"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="relative px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-lg transition-all duration-200"
           >
             Short Story Generator
           </Link>
+          <div className="w-px h-6 bg-border mx-2" />
           <LanguageSwitcher />
           <ThemeToggle />
-          <Link href="/login">
-            <Button size="sm">Login</Button>
+          <Link href="/login" className="ml-2">
+            <Button size="sm" className="bg-gradient-brand hover:opacity-90 text-white shadow-md btn-shine">
+              <Sparkles className="w-4 h-4 mr-1.5" />
+              Login
+            </Button>
           </Link>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="md:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl hover:bg-primary/10 transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -60,44 +80,44 @@ export function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            <Link
-              href="/"
-              className="text-base font-medium text-foreground py-2 min-h-[44px] flex items-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Lyric Generator
-            </Link>
-            <Link
-              href="/poem-generator"
-              className="text-base text-muted-foreground hover:text-foreground py-2 min-h-[44px] flex items-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Poem Generator
-            </Link>
-            <Link
-              href="/story-generator"
-              className="text-base text-muted-foreground hover:text-foreground py-2 min-h-[44px] flex items-center"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Short Story Generator
-            </Link>
-            <div className="py-2">
-              <LanguageSwitcher />
-            </div>
-            <div className="py-2">
-              <ThemeToggle />
-            </div>
-            <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-              <Button size="lg" className="w-full min-h-[44px]">
-                Login
-              </Button>
-            </Link>
-          </nav>
-        </div>
-      )}
+      <div className={`md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg transition-all duration-300 ${
+        mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+      }`}>
+        <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
+          <Link
+            href="/"
+            className="text-base font-medium text-foreground py-3 px-4 min-h-[44px] flex items-center rounded-xl hover:bg-primary/10 transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Lyric Generator
+          </Link>
+          <Link
+            href="/poem-generator"
+            className="text-base text-muted-foreground hover:text-foreground py-3 px-4 min-h-[44px] flex items-center rounded-xl hover:bg-primary/10 transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Poem Generator
+          </Link>
+          <Link
+            href="/story-generator"
+            className="text-base text-muted-foreground hover:text-foreground py-3 px-4 min-h-[44px] flex items-center rounded-xl hover:bg-primary/10 transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Short Story Generator
+          </Link>
+          <div className="h-px bg-border my-2" />
+          <div className="flex items-center gap-4 px-4 py-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
+          <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="mt-2">
+            <Button size="lg" className="w-full min-h-[44px] bg-gradient-brand hover:opacity-90 text-white shadow-lg">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Login
+            </Button>
+          </Link>
+        </nav>
+      </div>
     </header>
   )
 }
