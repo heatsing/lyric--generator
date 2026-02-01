@@ -4,7 +4,7 @@ import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const faqs = [
+export const faqData = [
   {
     question: "What is an AI Lyrics Generator and How Does It Work?",
     answer:
@@ -32,6 +32,22 @@ const faqs = [
   },
 ]
 
+// Generate FAQ structured data for SEO
+export function generateFAQStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
@@ -40,51 +56,76 @@ export function FAQ() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
-      {/* Left side - Description */}
-      <div className="lg:sticky lg:top-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Frequently Asked Questions</h2>
-        <p className="text-muted-foreground leading-relaxed text-pretty">
-          Everything you need to know about creating professional song lyrics with our free AI-powered generator. Get
-          instant answers about features, usage rights, supported genres, and more.
-        </p>
-        <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
-          <p className="text-sm font-semibold mb-2">Still have questions?</p>
-          <p className="text-sm text-muted-foreground">
-            Our AI lyrics generator is designed to be intuitive and powerful. Browse the questions to learn more about
-            how it works.
+    <>
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQStructuredData()),
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+        {/* Left side - Description */}
+        <div className="lg:sticky lg:top-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Frequently Asked Questions</h2>
+          <p className="text-muted-foreground leading-relaxed text-pretty">
+            Everything you need to know about creating professional song lyrics with our free AI-powered generator. Get
+            instant answers about features, usage rights, supported genres, and more.
           </p>
+          <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+            <p className="text-sm font-semibold mb-2">Still have questions?</p>
+            <p className="text-sm text-muted-foreground">
+              Our AI lyrics generator is designed to be intuitive and powerful. Browse the questions to learn more about
+              how it works.
+            </p>
+          </div>
+        </div>
+
+        {/* Right side - FAQ accordion */}
+        <div
+          className="space-y-4"
+          role="list"
+          aria-label="Frequently asked questions"
+        >
+          {faqData.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-card border border-border rounded-lg overflow-hidden"
+              role="listitem"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
+              >
+                <span className="font-semibold pr-8 text-pretty">{faq.question}</span>
+                <ChevronDown
+                  className={cn("w-5 h-5 text-muted-foreground transition-transform flex-shrink-0", {
+                    "transform rotate-180": openIndex === index,
+                  })}
+                  aria-hidden="true"
+                />
+              </button>
+              <div
+                id={`faq-answer-${index}`}
+                role="region"
+                aria-labelledby={`faq-question-${index}`}
+                className={cn("overflow-hidden transition-all duration-300 ease-in-out", {
+                  "max-h-0": openIndex !== index,
+                  "max-h-[1000px]": openIndex === index,
+                })}
+                hidden={openIndex !== index}
+              >
+                <div className="px-6 pb-4 text-muted-foreground leading-relaxed text-pretty">{faq.answer}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* Right side - FAQ accordion */}
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div key={index} className="bg-card border border-border rounded-lg overflow-hidden">
-            <button
-              onClick={() => toggleFAQ(index)}
-              className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
-              aria-expanded={openIndex === index}
-            >
-              <span className="font-semibold pr-8 text-pretty">{faq.question}</span>
-              <ChevronDown
-                className={cn("w-5 h-5 text-muted-foreground transition-transform flex-shrink-0", {
-                  "transform rotate-180": openIndex === index,
-                })}
-              />
-            </button>
-            <div
-              className={cn("overflow-hidden transition-all duration-300 ease-in-out", {
-                "max-h-0": openIndex !== index,
-                "max-h-[1000px]": openIndex === index,
-              })}
-            >
-              <div className="px-6 pb-4 text-muted-foreground leading-relaxed text-pretty">{faq.answer}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   )
 }
 

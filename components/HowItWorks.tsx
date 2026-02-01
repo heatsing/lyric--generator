@@ -57,44 +57,64 @@ export function HowItWorks() {
           {/* Steps */}
           <div className="relative">
             {/* Connection line - desktop */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-border to-transparent -translate-y-1/2 z-0" />
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-border to-transparent -translate-y-1/2 z-0" aria-hidden="true" />
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+            <ol
+              className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6"
+              role="list"
+              aria-label="Steps to create lyrics"
+            >
               {steps.map((step, index) => {
                 const Icon = step.icon
                 return (
-                  <div key={step.step} className="relative group">
+                  <li key={step.step} className="relative group">
                     {/* Card */}
-                    <div className="relative bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-6 h-full shadow-soft hover:shadow-soft-lg transition-all duration-500 hover:-translate-y-2">
+                    <article
+                      className="relative bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-6 h-full shadow-soft hover:shadow-soft-lg transition-all duration-500 hover:-translate-y-2"
+                      aria-labelledby={`step-title-${step.step}`}
+                    >
                       {/* Step number badge */}
-                      <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-sm font-bold text-primary z-10">
+                      <div
+                        className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-sm font-bold text-primary z-10"
+                        aria-hidden="true"
+                      >
                         {step.step}
                       </div>
 
                       {/* Icon */}
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6 mt-2 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon className="w-8 h-8 text-white" />
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6 mt-2 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                        aria-hidden="true"
+                      >
+                        <Icon className="w-8 h-8 text-white" aria-hidden="true" />
                       </div>
 
                       {/* Content */}
-                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      <h3
+                        id={`step-title-${step.step}`}
+                        className="text-xl font-bold mb-3 group-hover:text-primary transition-colors"
+                      >
+                        <span className="sr-only">Step {step.step}: </span>
                         {step.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-sm">
                         {step.description}
                       </p>
-                    </div>
+                    </article>
 
                     {/* Arrow - desktop */}
                     {index < steps.length - 1 && (
-                      <div className="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-background border border-border items-center justify-center">
+                      <div
+                        className="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-background border border-border items-center justify-center"
+                        aria-hidden="true"
+                      >
                         <ArrowRight className="w-3 h-3 text-muted-foreground" />
                       </div>
                     )}
-                  </div>
+                  </li>
                 )
               })}
-            </div>
+            </ol>
           </div>
 
           {/* CTA */}

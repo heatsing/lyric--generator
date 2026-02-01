@@ -115,32 +115,44 @@ export function BentoGrid() {
           </div>
 
           {/* Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+          <div
+            className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6"
+            role="list"
+            aria-label="Product features"
+          >
             {bentoItems.map((item) => {
               const Icon = item.icon
               return (
-                <div
+                <article
                   key={item.id}
-                  className={`${item.span} group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
+                  className={`${item.span} group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02]`}
+                  role="listitem"
+                  aria-labelledby={`feature-title-${item.id}`}
                 >
                   {/* Glass background */}
-                  <div className="absolute inset-0 bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl" />
+                  <div className="absolute inset-0 bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl" aria-hidden="true" />
 
                   {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`} aria-hidden="true" />
 
                   {/* Glow effect */}
-                  <div className={`absolute -inset-1 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-3xl`} />
+                  <div className={`absolute -inset-1 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-3xl`} aria-hidden="true" />
 
                   {/* Content */}
                   <div className="relative h-full flex flex-col">
                     {/* Icon */}
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-7 h-7 text-white" />
+                    <div
+                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                      aria-hidden="true"
+                    >
+                      <Icon className="w-7 h-7 text-white" aria-hidden="true" />
                     </div>
 
                     {/* Text */}
-                    <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                    <h3
+                      id={`feature-title-${item.id}`}
+                      className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300"
+                    >
                       {item.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed flex-grow">
@@ -149,17 +161,17 @@ export function BentoGrid() {
 
                     {/* Decorative elements for larger cards */}
                     {item.size === "large" && (
-                      <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity" aria-hidden="true">
                         <Icon className="w-24 h-24" />
                       </div>
                     )}
                     {item.size === "tall" && (
-                      <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity" aria-hidden="true">
                         <Icon className="w-32 h-32" />
                       </div>
                     )}
                   </div>
-                </div>
+                </article>
               )
             })}
           </div>
