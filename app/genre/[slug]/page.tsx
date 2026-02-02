@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Music, Sparkles, Zap } from "lucide-react"
+import { Sparkles, Zap, ArrowRight, Music2, Target, Award } from "lucide-react"
 import LyricsGenerator from "@/components/lyrics-generator"
 import FAQ from "@/components/faq"
 import CustomerReviews from "@/components/customer-reviews"
+import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
 
 const genreData: Record<
   string,
@@ -195,203 +197,237 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
-      {/* Header */}
-      <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 bg-background/80">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Music className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold text-balance">AI Lyrics Generator</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Lyric Generator
-            </Link>
-            <Link
-              href="/poem-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Poem Generator
-            </Link>
-            <Link
-              href="/story-generator"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Short Story Generator
-            </Link>
-            <Link href="/login">
-              <Button size="sm">Login</Button>
-            </Link>
-          </nav>
-        </div>
-      </header>
+    <main className="min-h-screen bg-background relative">
+      {/* Global background effects */}
+      <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
+      </div>
+
+      <Header />
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <Sparkles className="w-4 h-4" />
-            <span>AI-Powered {data.name} Lyrics</span>
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 -z-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="container mx-auto px-4 py-20">
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-white/10 shadow-lg">
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-primary uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                Free
+              </span>
+              <span className="text-sm text-muted-foreground">AI-Powered {data.name} Lyrics</span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground" />
+            </div>
+
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+              <span className="block text-foreground">{data.displayName.split(' ')[0]}</span>
+              <span className="block text-gradient mt-2">{data.displayName.split(' ').slice(1).join(' ')}</span>
+            </h1>
+
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              {data.description}
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <Link href="#generator">
+                <Button size="lg" className="h-14 px-8 text-base bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-500/25 group">
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Start Creating Free
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance leading-tight">
-            {data.displayName}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-            {data.description}
-          </p>
         </div>
       </section>
 
       {/* Generator Section */}
-      <section id="generator" className="container mx-auto px-4 pb-16">
-        <LyricsGenerator defaultGenre={data.name} />
-      </section>
-
-      {/* Customer Reviews Section */}
-      <section className="container mx-auto px-4 py-16">
-        <CustomerReviews />
+      <section id="generator" className="container mx-auto px-4 py-20">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            Start Creating
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+            Generate Your <span className="text-gradient">Perfect {data.name} Lyrics</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Choose your mood and theme. Our AI will create unique, professional {data.name.toLowerCase()} lyrics in seconds.
+          </p>
+        </div>
+        <LyricsGenerator presetGenre={data.name} />
       </section>
 
       {/* Features Section */}
-      <section id="features" className="container mx-auto px-4 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">
-            Why Use Our {data.name} Lyrics Generator?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-primary" />
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-muted/20" />
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+              Features
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+              Why Use Our <span className="text-gradient">{data.name} Lyrics Generator</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Powerful AI tools designed specifically for creating authentic {data.name.toLowerCase()} lyrics
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02]">
+              <div className="absolute inset-0 bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl" />
+              <div className="relative">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                  Instant Generation
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Generate professional {data.name.toLowerCase()} lyrics in seconds with our advanced AI technology.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Instant Generation</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Generate professional {data.name.toLowerCase()} lyrics in seconds with our advanced AI technology.
-                Perfect for songwriters and musicians.
-              </p>
             </div>
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-accent-foreground" />
+
+            <div className="group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02]">
+              <div className="absolute inset-0 bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl" />
+              <div className="relative">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                  Genre-Specific
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Tailored specifically for {data.name.toLowerCase()} music with authentic style and vocabulary.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Genre-Specific</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Tailored specifically for {data.name.toLowerCase()} music with authentic style, vocabulary, and
-                structure that fits the genre perfectly.
-              </p>
             </div>
-            <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <Music className="w-6 h-6 text-primary" />
+
+            <div className="group relative rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02]">
+              <div className="absolute inset-0 bg-card/50 backdrop-blur-xl border border-white/10 rounded-3xl" />
+              <div className="relative">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                  100% Original
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Every lyric is uniquely generated by AI, ensuring original content without copyright concerns.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">100% Original</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Every lyric is uniquely generated by AI, ensuring original content that you can use for your music
-                projects without copyright concerns.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="container mx-auto px-4 py-16 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-balance">
-            How to Generate {data.name} Lyrics
+      <section className="container mx-auto px-4 py-20">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            How It Works
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+            How to Generate <span className="text-gradient">{data.name} Lyrics</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto leading-relaxed">
-            Create professional {data.name.toLowerCase()} lyrics in three simple steps using our AI-powered generator.
-            Get started in seconds and unleash your creativity.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Create professional {data.name.toLowerCase()} lyrics in three simple steps
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
-                1
+        </div>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { step: 1, title: "Select Preferences", desc: `Choose your preferred mood, theme, and any specific keywords for your ${data.name.toLowerCase()} lyrics`, icon: Sparkles },
+            { step: 2, title: "Generate Instantly", desc: `Click generate and watch as our AI creates unique ${data.name.toLowerCase()} lyrics tailored to your specifications`, icon: Zap },
+            { step: 3, title: "Edit & Export", desc: "Review your lyrics, make any edits, and export them for your music projects", icon: Music2 },
+          ].map((item) => {
+            const Icon = item.icon
+            return (
+              <div key={item.step} className="relative group">
+                <div className="relative bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-6 h-full shadow-soft hover:shadow-soft-lg transition-all duration-500 hover:-translate-y-2">
+                  <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-sm font-bold text-primary z-10">
+                    {item.step}
+                  </div>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-6 mt-2 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Select Your Preferences</h3>
-                <p className="text-muted-foreground leading-relaxed mb-3">
-                  Choose your preferred mood, theme, and any specific keywords or topics you want to include in your{" "}
-                  {data.name.toLowerCase()} lyrics. Customize the length and language to match your needs.
-                </p>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Pick from various moods and themes</li>
-                  <li>Add optional keywords or topics</li>
-                  <li>Choose song length preference</li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
-                2
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Generate Instantly</h3>
-                <p className="text-muted-foreground leading-relaxed mb-3">
-                  Click the generate button and watch as our AI creates unique, original {data.name.toLowerCase()}{" "}
-                  lyrics tailored to your specifications in seconds.
-                </p>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Instant AI-powered generation</li>
-                  <li>Genre-specific lyrics structure</li>
-                  <li>Professional quality output</li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
-                3
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Edit & Export</h3>
-                <p className="text-muted-foreground leading-relaxed mb-3">
-                  Review your generated lyrics, make any edits you want, and export them for use in your music projects.
-                  Copy to clipboard or download as a text file.
-                </p>
-                <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 ml-2">
-                  <li>Copy to clipboard instantly</li>
-                  <li>Download as text file</li>
-                  <li>Regenerate unlimited times</li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex gap-6 items-start bg-card rounded-xl p-6 border border-border">
-              <div className="w-12 h-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold flex-shrink-0 text-lg">
-                💡
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-3">Pro Tips for {data.name} Lyrics</h3>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2 leading-relaxed">
-                  <li>Be specific with your theme and keywords</li>
-                  <li>Try different mood combinations</li>
-                  <li>Edit and personalize the output</li>
-                  <li>Experiment with various lengths</li>
-                </ul>
-              </div>
-            </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-muted/20" />
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+              Testimonials
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+              Loved by <span className="text-gradient">{data.name} Musicians</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Join thousands of {data.name.toLowerCase()} artists who trust our AI for their creative work
+            </p>
           </div>
+          <CustomerReviews />
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="container mx-auto px-4 py-16">
+      <section id="faq" className="container mx-auto px-4 py-20">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            FAQ
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+            Frequently Asked <span className="text-gradient">Questions</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Everything you need to know about our {data.name} lyrics generator
+          </p>
+        </div>
         <FAQ />
       </section>
 
       {/* Genre Quick Links Section */}
-      <section className="container mx-auto px-4 py-12 border-t border-border/50">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-center mb-8">Generate Lyrics by Genre</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-muted/30" />
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+              Explore
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance mb-4">
+              Generate Lyrics by <span className="text-gradient">Genre</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Explore our specialized AI generators for different music styles
+            </p>
+          </div>
+          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {Object.entries(genreData).map(([genreSlug, genreInfo]) => (
               <Link key={genreSlug} href={`/genre/${genreSlug}`}>
                 <Button
                   variant="outline"
-                  size="sm"
-                  className={`w-full hover:bg-primary hover:text-primary-foreground ${
-                    slug === genreSlug ? "bg-primary text-primary-foreground" : "bg-transparent"
+                  className={`w-full h-12 text-sm font-medium glass border-white/10 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 ${
+                    slug === genreSlug ? "bg-primary text-primary-foreground border-primary" : ""
                   }`}
                 >
                   {genreInfo.name} Lyrics
@@ -402,14 +438,35 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50 mt-16">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} AI Lyrics Generator. All rights reserved.</p>
+      {/* Final CTA Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Ready to Create Your <span className="text-gradient">Next {data.name} Hit?</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Start writing amazing {data.name.toLowerCase()} lyrics today. Free, unlimited, and powered by AI.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="#generator">
+                <Button size="lg" className="h-14 px-8 text-base bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-500/25 group">
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Start Creating Free
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
+
+      <Footer />
     </main>
   )
 }
