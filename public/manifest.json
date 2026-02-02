@@ -1,0 +1,30 @@
+{
+  "name": "AI Lyrics Generator - Create Song Lyrics Online",
+  "short_name": "LyricGen",
+  "description": "Generate original song lyrics for any genre with our AI-powered lyrics generator. 100% free, no sign-up required.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-light-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["music", "entertainment", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}
