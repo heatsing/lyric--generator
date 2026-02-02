@@ -154,7 +154,7 @@ export default function HomePageClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="#generator">
-                <Button size="lg" className="h-14 px-8 text-base bg-gradient-brand hover:opacity-90 text-white shadow-xl glow-primary btn-shine group">
+                <Button size="lg" className="h-14 px-8 text-base bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-500/25 group">
                   <Sparkles className="w-5 h-5 mr-2" />
                   Start Creating Free
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
