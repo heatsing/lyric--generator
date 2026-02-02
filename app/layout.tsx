@@ -6,10 +6,17 @@ import Script from "next/script"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Free AI Lyrics Generator - Create Original Song Lyrics Instantly | AI Songwriting Tool",
+  title: {
+    default: "AI-powered Lyrics Generator - Create Song Lyrics Online | Free",
+    template: "%s | AI Lyrics Generator",
+  },
   description:
-    "Generate unique song lyrics with our free AI lyrics generator. Create professional lyrics for pop, rock, rap, R&B, country & 15+ genres. Perfect for songwriters, musicians, content creators. No sign-up required, 100% copyright-free.",
+    "Generate original song lyrics for any genre with our AI-powered lyrics generator. 100% free, no sign-up required. Create professional lyrics for pop, rock, rap, R&B, country & 15+ genres.",
   keywords: [
+    "AI song lyrics generator",
+    "generate lyrics",
+    "music lyric generator",
+    "free lyrics",
     "ai lyrics generator",
     "song lyrics generator free",
     "lyric maker",
@@ -25,17 +32,29 @@ export const metadata: Metadata = {
     "lyrics generator tool",
   ],
   authors: [{ name: "AI Lyrics Generator" }],
+  creator: "AI Lyrics Generator",
+  publisher: "AI Lyrics Generator",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://lyricgenerator.cc"),
   openGraph: {
-    title: "Free AI Lyrics Generator - Create Original Song Lyrics Instantly",
-    description: "Generate professional song lyrics in seconds with AI. Free tool for all music genres. Try it now!",
+    title: "AI-powered Lyrics Generator - Create Song Lyrics Online",
+    description: "Generate original song lyrics for any genre with our AI-powered lyrics generator. 100% free, no sign-up required.",
     type: "website",
     siteName: "AI Lyrics Generator",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AI Lyrics Generator - Create Original Song Lyrics",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free AI Lyrics Generator - Create Original Songs",
-    description: "Generate professional song lyrics in seconds with AI. Free tool for all music genres.",
+    title: "AI-powered Lyrics Generator - Create Song Lyrics Online",
+    description: "Generate original song lyrics for any genre. 100% free, no sign-up required.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -48,24 +67,23 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: "v0.app",
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/icon-light-32x32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: "/apple-icon.png",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
+  manifest: "/manifest.json",
+  category: "Music",
 }
 
 export default function RootLayout({
