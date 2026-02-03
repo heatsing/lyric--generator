@@ -1,0 +1,26 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="37" fill="#1a1a2e"/>
+
+  <!-- Wave lines -->
+  <path d="M20 115c16-8 32 4 48-4s32-12 48-4 24 12 36 4" stroke="#6b7280" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4"/>
+  <path d="M20 127c16-8 32 4 48-4s32-12 48-4 24 12 36 4" stroke="#6b7280" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <path d="M30 139c12-6 24 2 36-2s24-8 36-2 20 8 28 2" stroke="#6b7280" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.2"/>
+
+  <!-- Equalizer bars -->
+  <rect x="36" y="72" width="10" height="20" rx="2" fill="#f97316"/>
+  <rect x="50" y="58" width="10" height="34" rx="2" fill="#f97316"/>
+  <rect x="64" y="44" width="10" height="48" rx="2" fill="#f97316"/>
+  <rect x="78" y="30" width="10" height="62" rx="2" fill="#f97316"/>
+
+  <!-- Stem line -->
+  <line x1="100" y1="18" x2="100" y2="112" stroke="#9ca3af" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Flag -->
+  <path d="M100 18l24 10-24 10z" fill="#f97316"/>
+
+  <!-- Circular note head -->
+  <circle cx="86" cy="112" r="18" stroke="#f97316" stroke-width="5" fill="none"/>
+
+  <!-- Swoosh curve -->
+  <path d="M104 104c12-16 28-20 40-12" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
