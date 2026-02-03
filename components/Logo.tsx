@@ -3,38 +3,73 @@ export function Logo({ className = "" }: { className?: string }) {
     <div
       className={`flex items-center gap-2.5 ${className}`}
       role="img"
-      aria-label="LyricGenerator.cc - AI-powered Lyrics Generator"
+      aria-label="Lyric Generator.cc - AI-powered Lyrics Generator"
     >
-      {/* Icon: Musical note with gradient */}
-      <div className="relative w-10 h-10 flex items-center justify-center" aria-hidden="true">
-        {/* Gradient background circle */}
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary via-accent to-primary/80 opacity-90" />
-
-        {/* Musical note icon */}
+      {/* Logo Icon */}
+      <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
         <svg
-          className="relative w-6 h-6 text-white z-10"
-          viewBox="0 0 24 24"
+          className="w-10 h-10"
+          viewBox="0 0 80 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
+          {/* Wave lines (gray) */}
           <path
-            d="M12 3v13.5M12 16.5a3 3 0 11-3 3 3 3 0 013-3zm0 0V3l7 2v11m0 0a3 3 0 11-3 3 3 3 0 013-3z"
+            d="M10 52c8-4 16 2 24-2s16-6 24-2 12 6 18 2"
             stroke="currentColor"
+            className="text-muted-foreground/40"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M10 58c8-4 16 2 24-2s16-6 24-2 12 6 18 2"
+            stroke="currentColor"
+            className="text-muted-foreground/30"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M14 64c6-3 12 1 18-1s12-4 18-1 10 4 14 1"
+            stroke="currentColor"
+            className="text-muted-foreground/20"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+
+          {/* Equalizer bars (orange) */}
+          <rect x="18" y="32" width="4" height="8" rx="1" fill="#f97316" />
+          <rect x="24" y="26" width="4" height="14" rx="1" fill="#f97316" />
+          <rect x="30" y="20" width="4" height="20" rx="1" fill="#f97316" />
+          <rect x="36" y="14" width="4" height="26" rx="1" fill="#f97316" />
+
+          {/* Stem line (gray) */}
+          <line x1="46" y1="8" x2="46" y2="52" stroke="currentColor" className="text-muted-foreground/50" strokeWidth="2" strokeLinecap="round" />
+
+          {/* Flag (orange) */}
+          <path d="M46 8l12 5-12 5z" fill="#f97316" />
+
+          {/* Circular note head (orange) */}
+          <circle cx="40" cy="52" r="8" stroke="#f97316" strokeWidth="2.5" fill="none" />
+
+          {/* Swoosh curve (orange) */}
+          <path
+            d="M48 48c6-8 14-10 20-6"
+            stroke="#f97316"
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
+            fill="none"
           />
         </svg>
-
-        {/* Sparkle effect */}
-        <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-accent rounded-full animate-pulse" />
       </div>
 
       {/* Text Logo */}
-      <div className="flex flex-col leading-none">
-        <span className="text-xl font-bold tracking-tight text-foreground">LyricGenerator</span>
-        <span className="text-[10px] font-medium text-muted-foreground tracking-wider uppercase">.cc</span>
+      <div className="flex items-baseline gap-0.5 leading-none">
+        <span className="text-xl font-bold tracking-tight text-foreground">Lyric Generator</span>
+        <span className="text-xl font-bold text-orange-500">.cc</span>
       </div>
     </div>
   )
@@ -46,30 +81,70 @@ export function LogoCompact({ className = "" }: { className?: string }) {
     <div
       className={`flex items-center gap-2 ${className}`}
       role="img"
-      aria-label="LyricGen.cc - AI Lyrics Generator"
+      aria-label="Lyric Generator.cc - AI Lyrics Generator"
     >
-      <div className="relative w-9 h-9 flex items-center justify-center" aria-hidden="true">
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary via-accent to-primary/80" />
+      <div className="relative w-8 h-8 flex items-center justify-center flex-shrink-0" aria-hidden="true">
         <svg
-          className="relative w-5 h-5 text-white z-10"
-          viewBox="0 0 24 24"
+          className="w-8 h-8"
+          viewBox="0 0 80 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
+          {/* Wave lines (gray) */}
           <path
-            d="M12 3v13.5M12 16.5a3 3 0 11-3 3 3 3 0 013-3zm0 0V3l7 2v11m0 0a3 3 0 11-3 3 3 3 0 013-3z"
+            d="M10 52c8-4 16 2 24-2s16-6 24-2 12 6 18 2"
             stroke="currentColor"
+            className="text-muted-foreground/40"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M10 58c8-4 16 2 24-2s16-6 24-2 12 6 18 2"
+            stroke="currentColor"
+            className="text-muted-foreground/30"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M14 64c6-3 12 1 18-1s12-4 18-1 10 4 14 1"
+            stroke="currentColor"
+            className="text-muted-foreground/20"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            fill="none"
+          />
+
+          {/* Equalizer bars (orange) */}
+          <rect x="18" y="32" width="4" height="8" rx="1" fill="#f97316" />
+          <rect x="24" y="26" width="4" height="14" rx="1" fill="#f97316" />
+          <rect x="30" y="20" width="4" height="20" rx="1" fill="#f97316" />
+          <rect x="36" y="14" width="4" height="26" rx="1" fill="#f97316" />
+
+          {/* Stem line (gray) */}
+          <line x1="46" y1="8" x2="46" y2="52" stroke="currentColor" className="text-muted-foreground/50" strokeWidth="2" strokeLinecap="round" />
+
+          {/* Flag (orange) */}
+          <path d="M46 8l12 5-12 5z" fill="#f97316" />
+
+          {/* Circular note head (orange) */}
+          <circle cx="40" cy="52" r="8" stroke="#f97316" strokeWidth="2.5" fill="none" />
+
+          {/* Swoosh curve (orange) */}
+          <path
+            d="M48 48c6-8 14-10 20-6"
+            stroke="#f97316"
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
+            fill="none"
           />
         </svg>
-        <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
       </div>
-      <div className="flex flex-col leading-none">
-        <span className="text-lg font-bold text-foreground">LyricGen</span>
-        <span className="text-[9px] font-medium text-muted-foreground tracking-wide">.cc</span>
+      <div className="flex items-baseline gap-0.5 leading-none">
+        <span className="text-lg font-bold text-foreground">Lyric Gen</span>
+        <span className="text-lg font-bold text-orange-500">.cc</span>
       </div>
     </div>
   )
