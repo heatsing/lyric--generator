@@ -62,7 +62,7 @@ export function Header() {
           <LanguageSwitcher />
           <ThemeToggle />
           <Link href="/login" className="ml-2">
-            <Button size="sm" className="bg-gradient-brand hover:opacity-90 text-white shadow-md btn-shine">
+            <Button size="sm" className="bg-orange-500 hover:bg-orange-600 text-white shadow-md shadow-orange-500/25">
               <Sparkles className="w-4 h-4 mr-1.5" />
               Login
             </Button>
@@ -111,7 +111,7 @@ export function Header() {
             <ThemeToggle />
           </div>
           <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="mt-2">
-            <Button size="lg" className="w-full min-h-[44px] bg-gradient-brand hover:opacity-90 text-white shadow-lg">
+            <Button size="lg" className="w-full min-h-[44px] bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/25">
               <Sparkles className="w-4 h-4 mr-2" />
               Login
             </Button>

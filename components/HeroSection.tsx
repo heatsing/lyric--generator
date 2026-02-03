@@ -68,13 +68,13 @@ export function HeroSection() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link href="#generator">
-              <Button size="lg" className="h-14 px-8 text-base bg-gradient-brand hover:opacity-90 text-white shadow-xl glow-primary btn-shine group">
+              <Button size="lg" className="h-14 px-8 text-base bg-orange-500 hover:bg-orange-600 text-white shadow-xl shadow-orange-500/25 group">
                 <Sparkles className="w-5 h-5 mr-2" />
                 {t.hero.cta || "Start Creating Free"}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-base glass border-white/20 hover:bg-white/10">
+            <Button size="lg" variant="outline" className="h-14 px-8 text-base border-orange-500/30 text-foreground hover:bg-orange-500/10">
               <Play className="w-5 h-5 mr-2" />
               Watch Demo
             </Button>

@@ -357,7 +357,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
       <Card className="p-6 lg:p-8 space-y-6 border border-border/50 shadow-soft card-hover bg-card/80 backdrop-blur-sm">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/25">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -451,7 +451,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
         <Button
           onClick={handleGenerate}
           disabled={isGenerating}
-          className="w-full bg-gradient-brand hover:opacity-90 text-white shadow-lg btn-shine glow-primary transition-all duration-300"
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/25 btn-shine transition-all duration-300"
           size="lg"
         >
           {isGenerating ? (
@@ -503,7 +503,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
           {isGenerating ? (
             <div className="flex flex-col items-center justify-center h-full py-16">
               <div className="relative">
-                <div className="w-16 h-16 rounded-full bg-gradient-brand animate-spin" style={{ animationDuration: '2s' }} />
+                <div className="w-16 h-16 rounded-full bg-orange-500 animate-spin" style={{ animationDuration: '2s' }} />
                 <div className="absolute inset-2 rounded-full bg-card" />
                 <Loader2 className="absolute inset-0 m-auto w-8 h-8 text-primary animate-spin" />
               </div>
@@ -597,7 +597,7 @@ export default function LyricsGenerator({ presetGenre }: LyricsGeneratorProps) {
                 <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                   <Music2 className="w-12 h-12 text-muted-foreground/50" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-gradient-brand flex items-center justify-center shadow-lg animate-bounce" style={{ animationDuration: '2s' }}>
+                <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/25 animate-bounce" style={{ animationDuration: '2s' }}>
                   <Sparkles className="w-4 h-4 text-white" />
                 </div>
               </div>
