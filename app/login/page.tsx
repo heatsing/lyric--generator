@@ -2,8 +2,8 @@
 
 import type React from "react"
 
-import { Music } from "lucide-react"
 import Link from "next/link"
+import { Logo } from "@/components/Logo"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -74,11 +74,8 @@ export default function LoginPage() {
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted flex items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center gap-2">
-          <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-            <Music className="w-7 h-7 text-primary-foreground" />
-          </div>
-          <span className="text-2xl font-bold">AI Lyrics Generator</span>
+        <Link href="/" className="flex items-center justify-center">
+          <Logo />
         </Link>
 
         {/* Login Card */}
